@@ -1,0 +1,33 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+nav{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    min-height: 8vh;
+    font-family: 'Comfortaa', cursive;
+    background-color: #353b48;
+}
+.logo{
+    color: rgb(226, 226, 226);
+    letter-spacing: 5px;
+}
+.nav-links{
+    display: flex;
+    justify-content: space-around;
+    width: 40%;
+}
+.nav-links li{
+    list-style: none;
+}
+.nav-links a{
+    color: rgb(226, 226, 226);
+    letter-spacing: 3px;
+    /* font-weight: bold; */
+    font-size: 14px;
+    text-decoration: none;
+}
