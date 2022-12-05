@@ -14,66 +14,56 @@
 
     @include('partitials.messages')
 
-    <div class="col-lg-12">
-        <div class="grid">
-            <p class="grid-header">Registro</p>
-            <div class="grid-body">
-                <form action="{{ route('cita.update', $cita->id) }}" method="POST">
-                    @csrf
-                    <input name="_method" type="hidden" value="PATCH">
-                    <div class="item-wrapper">
-                        <div class="row mb-3">
-                            <div class="col-md-8 mx-auto">
-
-                                <div class="form-group row showcase_row_area">
-                                    <div class="col-md-3 showcase_text_area">
-                                        <label for="inputType12">Paciente</label>
-                                    </div>
-                                    <div class="col-md-9 showcase_content_area">
-                                        <input type="text" class="form-control"
-                                               value="{{ $cita->paciente->nombres . ' ' . $cita->paciente->apellidos }}" disabled>
-                                    </div>
-                                </div>
-
-                                <div class="form-group row showcase_row_area">
-                                    <div class="col-md-3 showcase_text_area">
-                                        <label for="inputType1">Motivo</label>
-                                    </div>
-                                    <div class="col-md-9 showcase_content_area">
-                                        <input type="text" name="motivo" class="form-control"
-                                               value="{{ $cita->motivo }}">
-                                    </div>
-                                </div>
-
-                                <div class="form-group row showcase_row_area">
-                                    <div class="col-md-3 showcase_text_area">
-                                        <label for="inputType13">Fecha cita</label>
-                                    </div>
-                                    <div class="col-md-9 showcase_content_area">
-                                        <input type="text" name="fecha_cita" class="form-control datepicker"
-                                               value="{{ $cita->fecha_cita->format('Y-m-d') }}">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <hr>
-                    <div class="row" style="text-align:center">
-                        <div class="col-12">
-                            <a href="{{ route('cita.index') }}" class="btn btn-success">
-                                <i class="fa-solid fa-ban icono"></i>&nbsp;&nbsp;
-                                Cancelar
-                            </a>
-
-                            <button class="btn btn-primary" type="submit">
-                                <i class="fa-regular fa-floppy-disk icono"></i>&nbsp;&nbsp;Guardar
-                            </button>
-
-                        </div>
-                    </div>
-                </form>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                <p class="grid-header">Registro</p>
             </div>
         </div>
+        <form action="{{ route('cita.update', $cita->id) }}" method="POST">
+            @csrf
+            <input type="hidden" name="_method" value="PATCH">
+            <div class="row">
+                <div class="col-md-4 col-lg-4">
+                    <div class="form-group">
+                        <label for="inputType12">Paciente</label>
+                        <input type="text" class="form-control"
+                               value="{{ $cita->paciente->nombres . ' ' . $cita->paciente->apellidos }}"
+                               disabled>
+                    </div>
+                </div>
+
+                <div class="col-md-4 col-lg-4">
+                    <div class="form-group">
+                        <label for="inputType1">Motivo</label>
+                        <input type="text" name="motivo" class="form-control"
+                               value="{{ $cita->motivo }}">
+                    </div>
+                </div>
+
+                <div class="col-md-4 col-lg-4">
+                    <div class="form-group">
+                        <label for="inputType13">Fecha cita</label>
+                        <input type="text" name="fecha_cita" class="form-control datepicker"
+                               value="{{ $cita->fecha_cita->format('Y-m-d') }}">
+                    </div>
+                </div>
+            </div>
+            <br><br>
+            <div class="row">
+                <div class="col-12">
+                    <a href="{{ route('cita.index') }}" class="btn btn-success">
+                        <i class="fa-solid fa-ban icono"></i>&nbsp;&nbsp;
+                        Cancelar
+                    </a>
+
+                    <button class="btn btn-primary" type="submit">
+                        <i class="fa-regular fa-floppy-disk icono"></i>&nbsp;&nbsp;Guardar
+                    </button>
+
+                </div>
+            </div>
+        </form>
     </div>
 
 @endsection
