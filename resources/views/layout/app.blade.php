@@ -190,18 +190,6 @@
                         </ul>
                     </li>
 
-                    <li class="sidebar-item"><a class="sidebar-link sidebar-link" href="{{url('sales')}}"
-                                                aria-expanded="false"><i
-                                class=" 	fas fa-money-bill-alt"></i><span
-                                class="hide-menu">Ventas</span></a></li>
-                    <li class="sidebar-item"><a class="sidebar-link sidebar-link" href="{{url('debts')}}"
-                                                aria-expanded="false"><i
-                                class=" fas fa-hand-holding-usd "></i><span
-                                class="hide-menu">Pendientes</span></a></li>
-                    <li class="sidebar-item"><a class="sidebar-link sidebar-link" href="{{url('carboys_inventory')}}"
-                                                aria-expanded="false"><i
-                                class=" fas fa-prescription-bottle"></i><span
-                                class="hide-menu">Garrafones</span></a></li>
 
                 </ul>
             </nav>
