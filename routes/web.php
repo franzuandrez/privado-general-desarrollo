@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\CitaController;
+use App\Http\Controllers\DiagnosticoController;
+use App\Http\Controllers\InventarioController;
 use App\Http\Controllers\PacienteController;
 use Illuminate\Support\Facades\Route;
 
@@ -36,3 +38,6 @@ Route::delete('cita/delete/{id}', [CitaController::class, 'destroy'])->name('cit
 
 Route::get('diagnostico/{id}', [DiagnosticoController::class, 'create'])->name('diagnostico.create');
 Route::post('diagnostico/store', [DiagnosticoController::class, 'store'])->name('diagnostico.store');
+
+Route::get('ajax/inventario/presentaciones', [InventarioController::class, 'getPresentaciones'])->name('inventario.getPresentaciones');
+Route::get('ajax/inventario/lotes', [InventarioController::class, 'getLotes'])->name('inventario.getLotes');

@@ -2,7 +2,7 @@
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
         <div class="table-responsive">
             <table class="table table-hover">
-                <tr style="background-color: #6c5ce7; color: #fff">
+                <tr style="background-color: #F8AC10; color: #fff">
                     <th>#</th>
                     <th>PACIENTE</th>
                     <th>MOTIVO</th>
@@ -18,16 +18,17 @@
                         <td>
                             <a href="{{ route('cita.edit', $item->id) }}" data-toggle="tooltip"
                                data-placement="top" title="Editar">
-                                <i class="fa-solid fa-pen-to-square"></i>
+{{--                                <i class="fa-solid fa-pen-to-square"></i>--}}
                             </a>
                             &nbsp;
                             <a href="javascript:$('#form-destroy-{{$item->id}}').submit()" data-toggle="tooltip"
-                               data-placement="top" title="Dar de baja">
-                                <i class="fa-solid fa-trash"></i>
+                               data-placement="top" title="Dar de baja">Dar de baja
+{{--                                <i class="fa-solid fa-trash"></i>--}}
                             </a>&nbsp;
                             <a href="{{ route('diagnostico.create', $item->id) }}" data-toggle="tooltip"
                                data-placement="top" title="Atender">
                                 <i class="fa-solid fa-user-doctor"></i>
+                                Atender
                             </a>
                             <form id="form-destroy-{{$item->id}}"
                                   action="{{ route('cita.destroy', $item->id) }}" method="POST">

@@ -2,7 +2,7 @@
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
         <div class="table-responsive">
             <table class="table table-hover">
-                <tr style="background-color: #6c5ce7; color: #fff">
+                <tr style="background-color: #F8AC10; color: #fff">
                     <th>#</th>
                     <th>NOMBRE</th>
                     <th>APELLIDOS</th>
