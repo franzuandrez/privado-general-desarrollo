@@ -10,8 +10,8 @@
                 <p class="grid-header">Registar Paciente
                 </p>
 
-                    <div class="row">
-                        <div class="col col-md-6 col-xl-12">
+                    <div class="row" >
+                        <div class="col col-md-12 col-xl-12">
                             <form action="{{ route('paciente.store') }}" method="POST">
                                 @csrf
 
