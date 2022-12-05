@@ -110,7 +110,7 @@
                                     data-feather="power"
                                     class="svg-icon mr-2 ml-1"></i>
                                 Cerrar Sesión</a>
-                            <form id="logout-form"  method="POST" style="display: none;">
+                            <form id="logout-form" method="POST" style="display: none;">
                                 @csrf
                             </form>
 
@@ -135,9 +135,18 @@
                     <li class="list-divider"></li>
                     <li class="nav-small-cap"><span class="hide-menu">Registro</span></li>
 
-                    <li class="sidebar-item"><a class="sidebar-link" href="{{url('products')}}"
-                                                aria-expanded="false"><i data-feather="tag"
-                                                                         class="feather-icon"></i><span
+                    <li class="sidebar-item">
+                        <a class="sidebar-link" href="{{route('cita.index')}}"
+                           aria-expanded="false"><i data-feather="tag"
+                                                    class="feather-icon"></i><span
+                                class="hide-menu">Citas
+                                </span></a>
+                    </li>
+
+                    <li class="sidebar-item">
+                        <a class="sidebar-link" href="{{route('paciente.index')}}"
+                           aria-expanded="false"><i data-feather="tag"
+                                                    class="feather-icon"></i><span
                                 class="hide-menu">Pacientes
                                 </span></a>
                     </li>
