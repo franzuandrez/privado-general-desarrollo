@@ -1,23 +1,13 @@
 @extends('layout.app')
 @section('content')
-    @component('partitials.nav',['operation'=>'Nuevo',
-      'menu_icon'=>'mdi mdi-clipboard-text-outline link-icon',
-      'submenu_icon'=>'fa-solid fa-bell-concierge icono',
-      'operation_icon'=>'fa-solid fa-plus',])
-        @slot('menu')
-            Servicio
-        @endslot
-        @slot('submenu')
-            Cita
-        @endslot
-    @endcomponent
+
 
     @include('partitials.messages')
 
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-12">
-                <p class="grid-header">Registro</p>
+                <p class="grid-header">Reigstro de cita</p>
             </div>
         </div>
         <form action="{{ route('cita.store') }}" method="POST">
@@ -52,14 +42,10 @@
             <br><br>
             <div class="row">
                 <div class="col-12">
-                    <a href="{{ route('cita.index') }}" class="btn btn-success">
-                        <i class="fa-solid fa-ban icono"></i>&nbsp;&nbsp;
-                        Cancelar
+                    <button type="submit" class="btn btn-primary">Guardar</button>
+                    <a class="btn btn-dark" href="{{ route('cita.index') }}" role="button">
+                        Regresar
                     </a>
-
-                    <button class="btn btn-primary" type="submit">
-                        <i class="fa-regular fa-floppy-disk icono"></i>&nbsp;&nbsp;Guardar
-                    </button>
 
                 </div>
             </div>

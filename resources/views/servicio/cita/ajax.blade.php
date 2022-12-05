@@ -22,7 +22,8 @@
                             </a>
                             &nbsp;
                             <a href="javascript:$('#form-destroy-{{$item->id}}').submit()" data-toggle="tooltip"
-                               data-placement="top" title="Dar de baja">Dar de baja
+                               data-placement="top" title="Descartar">
+                                Descartar
 {{--                                <i class="fa-solid fa-trash"></i>--}}
                             </a>&nbsp;
                             <a href="{{ route('diagnostico.create', $item->id) }}" data-toggle="tooltip"

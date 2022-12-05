@@ -161,34 +161,14 @@
                             <i class="far fa-credit-card"></i>
                             <span
                                 class="hide-menu">Inventario</span></a></li>
-                    <li class="sidebar-item"><a class="sidebar-link sidebar-link" href="{{url('customers')}}"
-                                                aria-expanded="false">
-                            <i class="fas fa-user"></i>
-                            <span
-                                class="hide-menu">Clientes</span></a></li>
+                   
                     <li class="sidebar-item"><a class="sidebar-link sidebar-link" href="{{url('users')}}"
                                                 aria-expanded="false">
                             <i class="fas fa-user-circle"></i>
                             <span
                                 class="hide-menu">Usuarios</span></a></li>
                     <li class="list-divider"></li>
-                    <li class="nav-small-cap"><span class="hide-menu">Consultas</span></li>
 
-                    <li class="sidebar-item"><a class="sidebar-link has-arrow" href="javascript:void(0)"
-                                                aria-expanded="false"><i data-feather="calendar"
-                                                                         class="feather-icon"></i><span
-                                class="hide-menu">Visitas </span></a>
-                        <ul aria-expanded="false" class="collapse  first-level base-level-line">
-                            <li class="sidebar-item"><a href="{{url('visits')}}" class="sidebar-link"><span
-                                        class="hide-menu">Realizadas
-                                        </span></a>
-                            </li>
-                            <li class="sidebar-item"><a href="{{url('upcoming_visits')}}" class="sidebar-link"><span
-                                        class="hide-menu"> Proximas
-                                        </span></a>
-                            </li>
-                        </ul>
-                    </li>
 
 
                 </ul>

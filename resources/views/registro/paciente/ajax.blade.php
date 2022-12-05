@@ -4,7 +4,7 @@
             <table class="table table-hover">
                 <tr style="background-color: #F8AC10; color: #fff">
                     <th>#</th>
-                    <th>NOMBRE</th>
+                    <th>NOMBRES</th>
                     <th>APELLIDOS</th>
                     <th>EDAD</th>
                     <th>OPCIONES</th>
@@ -24,12 +24,12 @@
                         <td>
                             <a href="{{ route('paciente.edit', $item->id) }}" data-toggle="tooltip"
                                data-placement="top" title="Editar">
-                                <i class="fa-solid fa-pen-to-square"></i>Editar
+                                <i class="fa-solid fa-pen-to-square"></i>Modificar
                             </a>
                             &nbsp;&nbsp;
                             <a href="javascript:$('#form-destroy-{{$item->id}}').submit()" data-toggle="tooltip"
                                data-placement="top" title="Dar de baja">
-                                <i class="fa-solid fa-trash"></i>Dar de Baja
+                                <i class="fa-solid fa-trash"></i>Baja
                             </a>
                             <form id="form-destroy-{{$item->id}}"
                                   action="{{ route('paciente.destroy', $item->id) }}" method="POST">
