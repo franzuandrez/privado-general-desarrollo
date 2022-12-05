@@ -39,5 +39,12 @@ Route::delete('cita/delete/{id}', [CitaController::class, 'destroy'])->name('cit
 Route::get('diagnostico/{id}', [DiagnosticoController::class, 'create'])->name('diagnostico.create');
 Route::post('diagnostico/store', [DiagnosticoController::class, 'store'])->name('diagnostico.store');
 
+Route::get('inventario', [InventarioController::class, 'index'])->name('inventario.index');
+Route::get('inventario/create', [InventarioController::class, 'create'])->name('inventario.create');
+Route::post('inventario/store', [InventarioController::class, 'store'])->name('inventario.store');
+Route::get('inventario/reduce', [InventarioController::class, 'reduce'])->name('inventario.reduce');
+Route::post('inventario/reduce', [InventarioController::class, 'restar'])->name('inventario.restar');
+
+
 Route::get('ajax/inventario/presentaciones', [InventarioController::class, 'getPresentaciones'])->name('inventario.getPresentaciones');
 Route::get('ajax/inventario/lotes', [InventarioController::class, 'getLotes'])->name('inventario.getLotes');

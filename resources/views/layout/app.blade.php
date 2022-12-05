@@ -156,7 +156,7 @@
                                 class="hide-menu">Médicos
                                 </span></a>
                     </li>
-                    <li class="sidebar-item"><a class="sidebar-link sidebar-link" href="{{url('wallets')}}"
+                    <li class="sidebar-item"><a class="sidebar-link sidebar-link" href="{{ route('inventario.index')}}"
                                                 aria-expanded="false">
                             <i class="far fa-credit-card"></i>
                             <span
