@@ -211,7 +211,7 @@
         @yield('content')
         <footer class="footer text-center text-muted">
             Desarrollado por <a
-                href="#">Franzua Andrez</a>.
+                href="#">Franzua Andrez </a>. Proyecto área de análisis y desarrollo
         </footer>
 
     </div>
