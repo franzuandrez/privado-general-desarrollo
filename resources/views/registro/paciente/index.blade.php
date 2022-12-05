@@ -2,17 +2,6 @@
 @section('content')
 
 
-    @component('partitials.nav',['operation'=>'',
-      'menu_icon'=>'mdi mdi-clipboard-text-outline link-icon',
-      'submenu_icon'=>'fa-solid fa-id-card icono',
-      'operation_icon'=>'',])
-        @slot('menu')
-            Registro
-        @endslot
-        @slot('submenu')
-            Paciente
-        @endslot
-    @endcomponent
 
     @include('partitials.messages')
 

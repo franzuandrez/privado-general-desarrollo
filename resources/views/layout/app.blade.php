@@ -38,7 +38,7 @@
         }
     </style>
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    @yield('map')
+
 
 </head>
 
@@ -137,8 +137,8 @@
 
                     <li class="sidebar-item">
                         <a class="sidebar-link" href="{{route('cita.index')}}"
-                           aria-expanded="false"><i data-feather="tag"
-                                                    class="feather-icon"></i><span
+                           aria-expanded="false"><i
+                                                    class="fas fa-hospital-o"></i><span
                                 class="hide-menu">Citas
                                 </span></a>
                     </li>
@@ -158,10 +158,11 @@
                     </li>
                     <li class="sidebar-item"><a class="sidebar-link sidebar-link" href="{{ route('inventario.index')}}"
                                                 aria-expanded="false">
-                            <i class="far fa-credit-card"></i>
+                            <i class="far fa-plus-square"></i>
+
                             <span
                                 class="hide-menu">Inventario</span></a></li>
-                   
+
                     <li class="sidebar-item"><a class="sidebar-link sidebar-link" href="{{url('users')}}"
                                                 aria-expanded="false">
                             <i class="fas fa-user-circle"></i>
