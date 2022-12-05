@@ -16,12 +16,12 @@ class DiagnosticoController extends Controller
     public function create($id_cita)
     {
         $cita = Cita::find($id_cita);
-//        if($cita->atendido == true){
-//            return redirect()->route('cita.index')->with('error', 'El paciente ya fue atendido');
-//        }
-//
-//        $cita->atendido = true;
-//        $cita->update();
+        if($cita->atendido == true){
+            return redirect()->route('cita.index')->with('error', 'El paciente ya fue atendido');
+        }
+
+        $cita->atendido = true;
+        $cita->update();
         $paciente = Paciente::find($cita->id_paciente);
         $medicamentos = Medicamento::active()->get();
         return view('servicio.diagnostico.create', compact('medicamentos', 'id_cita', 'paciente'));
