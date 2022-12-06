@@ -2,35 +2,33 @@
 @section('content')
 
 
-
     @include('partitials.messages')
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="col col-md-12">
+                            <div class="grid">
+                                <h4 class="card-title">Registros de Citas
+                                    <a class="btn btn-primary" href="{{url('/cita/create')}}" role="button">
+                                        <i class="fas fa-plus"></i> &nbsp; Agregar
+                                    </a>
+                                </h4>
+                                <div class="item-wrapper">
+                                    <div class="table-responsive">
+                                        <div id="content">
+                                            @include('servicio.cita.ajax')
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
-    <div class="row">
-        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-            @component('partitials.btn-create',['url'=>route('cita.create')])
-            @endcomponent
-
-            {{--            @component('partitials.btn-ver',['url'=>'javascript:ver("laptop")'])--}}
-            {{--            @endcomponent--}}
-
-            {{--            @component('partitials.btn-edit',['url'=>'javascript:editar("laptop")'])--}}
-            {{--            @endcomponent--}}
-
-            {{--            @component('partitials.btn-eliminar',['url'=>url('laptop/delete')])--}}
-            {{--            @endcomponent--}}
-
-            {{--            @component('partitials.btn-asignar',['url'=>'javascript:asignar()'])--}}
-            {{--            @endcomponent--}}
-
-            {{--            @component('partitials.btn-desasignar',['url'=>url('laptop/delete')])--}}
-            {{--            @endcomponent--}}
+                    </div>
+                </div>
+            </div>
         </div>
+    </div>
 
-    </div>
-    <br>
-    <div class="row">
-    </div>
-    <div id="content">
-        @include('servicio.cita.ajax')
-    </div>
 @endsection

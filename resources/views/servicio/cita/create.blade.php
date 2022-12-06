@@ -7,7 +7,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-12">
-                <p class="grid-header">Reigstro de cita</p>
+                <p class="grid-header">Registro de cita</p>
             </div>
         </div>
         <form action="{{ route('cita.store') }}" method="POST">

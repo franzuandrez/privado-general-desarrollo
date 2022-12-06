@@ -9,7 +9,7 @@
             <div class="row">
                 <div class="col-md-4 col-lg-4">
                     <div class="form-group">
-                        <label for="inputType1">Username</label>
+                        <label for="inputType1">Usuario</label>
                         <input type="text" name="username" class="form-control"
                                value="{{ old('username') }}" autofocus>
                     </div>
@@ -46,6 +46,8 @@
             <hr>
             <div class="row">
                 <div class="col-12">
+
+
                     <button type="submit" class="btn btn-primary">Guardar</button>
                     <a class="btn btn-dark" href="{{route('medico.index')}}" role="button">
                         Regresar

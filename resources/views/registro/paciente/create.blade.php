@@ -3,69 +3,59 @@
 
 
     @include('partitials.messages')
-
-    <div class="row">
-        <div class="col col-md-12">
-            <div class="grid">
-                <p class="grid-header">Registar Paciente
-                </p>
-
-                    <div class="row" >
-                        <div class="col col-md-12 col-xl-12">
-                            <form action="{{ route('paciente.store') }}" method="POST">
-                                @csrf
-
-                                <div class="item-wrapper">
-                                    <div class="row mb-3">
-                                        <div class="col-md-8 mx-auto">
-                                            <div class="form-group row showcase_row_area">
-                                                <div class="col-md-3 showcase_text_area">
-                                                    <label for="inputType1">Nombres</label>
-                                                </div>
-                                                <div class="col-md-9 showcase_content_area">
-                                                    <input type="text" name="nombres" class="form-control"
-                                                           value="{{ old('nombres') }}" autofocus>
-                                                </div>
-                                            </div>
-                                            <div class="form-group row showcase_row_area">
-                                                <div class="col-md-3 showcase_text_area">
-                                                    <label for="inputType12">Apellidos</label>
-                                                </div>
-                                                <div class="col-md-9 showcase_content_area">
-                                                    <input type="text" name="apellidos" class="form-control"
-                                                           value="{{ old('apellidos') }}">
-                                                </div>
-                                            </div>
-                                            <div class="form-group row showcase_row_area">
-                                                <div class="col-md-3 showcase_text_area">
-                                                    <label for="inputType13">Fecha de nacimiento</label>
-                                                </div>
-                                                <div class="col-md-9 showcase_content_area">
-                                                    <input type="text" name="fecha_nacimiento"
-                                                           class="form-control datepicker"
-                                                           value="{{ old('fecha_nacimiento') }}">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <hr>
-                                <div class="row" style="text-align:center">
-                                    <div class="col-12">
-                                        <button type="submit" class="btn btn-primary">Guardar</button>
-                                        <a class="btn btn-dark" href="{{url('/customers')}}" role="button">
-                                            Regresar
-                                        </a>
-
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                <p class="grid-header">Registro de Paciente</p>
             </div>
         </div>
+        <form action="{{ route('paciente.store') }}" method="POST">
+            @csrf
+
+            <div class="row">
+
+                <div class="col-md-4 col-lg-4">
+                    <div class="form-group">
+                        <label for="nombres">Nombres</label>
+                        <input type="text" name="nombres" class="form-control"
+                               id="nombres"
+                               value="{{ old('nombres') }}" autofocus>
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg-4">
+                    <div class="form-group">
+                        <label for="apellidos">Apellidos</label>
+                        <input type="text" name="apellidos" class="form-control"
+                               value="{{ old('apellidos') }}">
+                    </div>
+                </div>
+                <div class="col-4 col-md-4 col-sm-6 col-lg-3">
+                    <div class="form-group">
+                        <label for="fecha_nacimiento">Fecha Nacimiento</label>
+                        <input type="date"
+                               name="fecha_nacimiento"
+
+                               class="form-control">
+                    </div>
+                </div>
+            </div>
+            <br><br>
+            <div class="row">
+                <div class="col-12">
+                    <button type="submit" class="btn btn-primary">Guardar</button>
+                    <a class="btn btn-dark" href="{{ route('paciente.index') }}" role="button">
+                        Regresar
+                    </a>
+
+                </div>
+            </div>
+
+
+        </form>
     </div>
+
+
+
 
 
 @endsection

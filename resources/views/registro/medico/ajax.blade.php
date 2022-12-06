@@ -21,7 +21,7 @@
                         <td>
                             <a href="javascript:$('#form-destroy-{{$item->id}}').submit()" data-toggle="tooltip"
                                data-placement="top" title="Dar de baja">
-                                <i class="fa-solid fa-trash"></i>Baja
+                                <i class="fa fa-trash"></i>Baja
                             </a>
                             <form id="form-destroy-{{$item->id}}"
                                   action="{{ route('medico.destroy', $item->id) }}" method="POST">

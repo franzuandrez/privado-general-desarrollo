@@ -151,7 +151,7 @@
                             <span
                                 class="hide-menu">Pacientes</span></a></li>
 
-                    <li class="sidebar-item"><a class="sidebar-link sidebar-link" href="#"
+                    <li class="sidebar-item"><a class="sidebar-link sidebar-link" href="{{route('medico.index')}}"
                                                 aria-expanded="false">
                             <i class="fa fa-user-md"></i>
                             <span

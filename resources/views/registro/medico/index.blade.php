@@ -2,46 +2,35 @@
 @section('content')
 
 
-    @component('partitials.nav',['operation'=>'',
-      'menu_icon'=>'mdi mdi-clipboard-text-outline link-icon',
-      'submenu_icon'=>'fa-solid fa-id-card icono',
-      'operation_icon'=>'',])
-        @slot('menu')
-            Registro
-        @endslot
-        @slot('submenu')
-            Doctores
-        @endslot
-    @endcomponent
+
 
     @include('partitials.messages')
 
-    <div class="row">
-        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-            @component('partitials.btn-create',['url'=> route('medico.create')])
-            @endcomponent
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="col col-md-12">
+                            <div class="grid">
+                                <h4 class="card-title">Registros de Médicos
+                                    <a class="btn btn-primary" href="{{url('/medico/create')}}" role="button">
+                                        <i class="fas fa-plus"></i> &nbsp; Agregar
+                                    </a>
+                                </h4>
+                                <div class="item-wrapper">
+                                    <div class="table-responsive">
+                                        <div id="content">
+                                            @include('registro.medico.ajax')
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
-            {{--            @component('partitials.btn-ver',['url'=>'javascript:ver("laptop")'])--}}
-            {{--            @endcomponent--}}
-
-            {{--            @component('partitials.btn-edit',['url'=>'javascript:editar("laptop")'])--}}
-            {{--            @endcomponent--}}
-
-            {{--            @component('partitials.btn-eliminar',['url'=>url('laptop/delete')])--}}
-            {{--            @endcomponent--}}
-
-            {{--            @component('partitials.btn-asignar',['url'=>'javascript:asignar()'])--}}
-            {{--            @endcomponent--}}
-
-            {{--            @component('partitials.btn-desasignar',['url'=>url('laptop/delete')])--}}
-            {{--            @endcomponent--}}
+                    </div>
+                </div>
+            </div>
         </div>
-
-    </div>
-    <br>
-    <div class="row">
-    </div>
-    <div id="content">
-        @include('registro.medico.ajax')
     </div>
 @endsection
