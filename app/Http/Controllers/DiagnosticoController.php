@@ -53,7 +53,7 @@ class DiagnosticoController extends Controller
             return response()->json(['data' => null, 'status' => 200, 'message' => 'Diagnóstico completado']);
         } catch (\Exception $e) {
             DB::rollBack();
-            return response()->json(['data' => null, 'status' => 500, 'message' => 'Ups! Ha ocurrido un error inesperado, por favor inténtelo nuevamente']);
+            return response()->json(['data' => null, 'status' => 500, 'message' => 'Ha ocurrido un error por favor inténtelo nuevamente']);
         }
     }
 

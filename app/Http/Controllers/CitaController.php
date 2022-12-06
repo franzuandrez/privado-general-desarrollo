@@ -38,7 +38,7 @@ class CitaController extends Controller
 
             return redirect()->route('cita.index')->with('store', 'Registro agregado');
         } catch (\Exception $e) {
-            return redirect()->back()->with('error', 'Ups! Ha ocurrido un error inesperado, por favor inténtelo nuevamente');
+            return redirect()->back()->with('error', 'Ha ocurrido un error por favor inténtelo nuevamente');
         }
     }
 
@@ -63,7 +63,7 @@ class CitaController extends Controller
 
             return redirect()->route('cita.index')->with('update', 'Registro actualizado');
         } catch (\Exception $e) {
-            return redirect()->back()->with('error', 'Ups! Ha ocurrido un error inesperado, por favor inténtelo nuevamente');
+            return redirect()->back()->with('error', 'Ha ocurrido un error por favor inténtelo nuevamente');
         }
     }
 
@@ -76,7 +76,7 @@ class CitaController extends Controller
 
             return redirect()->route('cita.index')->with('delete', 'Registro dado de baja');
         } catch (\Exception $ex) {
-            return redirect()->back()->with('error', 'Ups! Ha ocurrido un error inesperado, por favor inténtelo nuevamente');
+            return redirect()->back()->with('error', 'Ha ocurrido un error por favor inténtelo nuevamente');
         }
     }
 }

@@ -27,6 +27,10 @@
                                 <i class="fa fa-pencil-square" aria-hidden="true"></i>Modificar
                             </a>
                             &nbsp;&nbsp;
+                            <a href="{{ route('paciente.edit', $item->id) }}" data-toggle="tooltip"
+                               data-placement="top" title="Historial">
+                                <i class="fa fa-eye"></i>Historial
+                            </a>
                             <a href="javascript:$('#form-destroy-{{$item->id}}').submit()" data-toggle="tooltip"
                                data-placement="top" title="Dar de baja">
                                 <i class="fa fa-trash"></i>Baja

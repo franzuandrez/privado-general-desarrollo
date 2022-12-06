@@ -46,7 +46,7 @@ class InventarioController extends Controller
 
             return redirect()->route('inventario.index')->with('store', 'Registro agregado');
         } catch (\Exception $e) {
-            return redirect()->back()->with('error', 'Ups! Ha ocurrido un error inesperado, por favor inténtelo nuevamente');
+            return redirect()->back()->with('error', 'Ha ocurrido un error por favor inténtelo nuevamente');
         }
     }
 
@@ -75,7 +75,7 @@ class InventarioController extends Controller
 
             return redirect()->route('inventario.index')->with('store', 'Registro agregado');
         } catch (\Exception $e) {
-            return redirect()->back()->with('error', 'Ups! Ha ocurrido un error inesperado, por favor inténtelo nuevamente');
+            return redirect()->back()->with('error', 'Ha ocurrido un error por favor inténtelo nuevamente');
         }
     }
 

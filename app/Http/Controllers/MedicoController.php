@@ -39,7 +39,7 @@ class MedicoController extends Controller
             return redirect()->route('medico.index')->with('store', 'Registro agregado');
         } catch (\Exception $e) {
             DB::rollBack();
-            return redirect()->back()->with('error', 'Ups! Ha ocurrido un error inesperado, por favor inténtelo nuevamente');
+            return redirect()->back()->with('error', 'Ha ocurrido un error por favor inténtelo nuevamente');
         }
     }
 
@@ -52,7 +52,7 @@ class MedicoController extends Controller
 
             return redirect()->route('medico.index')->with('delete', 'Registro dado de baja');
         } catch (\Exception $ex) {
-            return redirect()->back()->with('error', 'Ups! Ha ocurrido un error inesperado, por favor inténtelo nuevamente');
+            return redirect()->back()->with('error', 'Ha ocurrido un error por favor inténtelo nuevamente');
         }
     }
 }
