@@ -27,7 +27,7 @@
                                 <i class="fa fa-pencil-square" aria-hidden="true"></i>Modificar
                             </a>
                             &nbsp;&nbsp;
-                            <a href="{{ route('paciente.edit', $item->id) }}" data-toggle="tooltip"
+                            <a href="{{ route('paciente.historial', $item->id) }}" data-toggle="tooltip"
                                data-placement="top" title="Historial">
                                 <i class="fa fa-eye"></i>Historial
                             </a>

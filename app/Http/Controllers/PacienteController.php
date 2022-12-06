@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Cita;
 use App\Http\Requests\PacienteStoreRequest;
 use App\Paciente;
+use App\RecetaEnc;
 use Illuminate\Http\Request;
 
 class PacienteController extends Controller
@@ -69,5 +71,23 @@ class PacienteController extends Controller
         } catch (\Exception $ex) {
             return redirect()->back()->with('error', 'Ha ocurrido un error por favor inténtelo nuevamente');
         }
+    }
+
+
+    public function historial($id)
+    {
+        $paciente = Paciente::findOrFail($id);
+
+        $citas = Cita::leftJoin('receta_enc', 'receta_enc.id_cita', '=', 'cita.id')
+            ->where('cita.id_paciente', $id)
+            ->get();
+
+
+
+
+
+
+
+        return view('registro.paciente.historial', compact('paciente', 'citas'));
     }
 }

@@ -25,6 +25,7 @@ Route::get('/', function () {
 Route::get('paciente', [PacienteController::class, 'index'])->name('paciente.index');
 Route::get('paciente/create', [PacienteController::class, 'create'])->name('paciente.create');
 Route::post('paciente/store', [PacienteController::class, 'store'])->name('paciente.store');
+Route::get('paciente/historial/{id}', [PacienteController::class, 'historial'])->name('paciente.historial');
 Route::get('paciente/edit/{id}', [PacienteController::class, 'edit'])->name('paciente.edit');
 Route::patch('paciente/update/{id}', [PacienteController::class, 'update'])->name('paciente.update');
 Route::delete('paciente/delete/{id}', [PacienteController::class, 'destroy'])->name('paciente.destroy');
