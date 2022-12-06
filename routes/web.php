@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CitaController;
 use App\Http\Controllers\DiagnosticoController;
+use App\Http\Controllers\MedicoController;
 use App\Http\Controllers\InventarioController;
 use App\Http\Controllers\PacienteController;
 use Illuminate\Support\Facades\Route;
@@ -48,3 +49,10 @@ Route::post('inventario/reduce', [InventarioController::class, 'restar'])->name(
 
 Route::get('ajax/inventario/presentaciones', [InventarioController::class, 'getPresentaciones'])->name('inventario.getPresentaciones');
 Route::get('ajax/inventario/lotes', [InventarioController::class, 'getLotes'])->name('inventario.getLotes');
+
+Route::get('medico', [MedicoController::class, 'index'])->name('medico.index');
+Route::get('medico/create', [MedicoController::class, 'create'])->name('medico.create');
+Route::post('medico/store', [MedicoController::class, 'store'])->name('medico.store');
+//Route::get('medico/edit/{id}', [MedicoController::class, 'edit'])->name('medico.edit');
+//Route::patch('medico/update/{id}', [MedicoController::class, 'update'])->name('medico.update');
+Route::delete('medico/delete/{id}', [MedicoController::class, 'destroy'])->name('medico.destroy');

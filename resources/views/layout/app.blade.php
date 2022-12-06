@@ -150,7 +150,7 @@
                                 class="hide-menu">Pacientes
                                 </span></a>
                     </li>
-                    <li class="sidebar-item"><a class="sidebar-link" href="{{url('visit_reasons')}}"
+                    <li class="sidebar-item"><a class="sidebar-link" href="{{ route('medico.index') }}"
                                                 aria-expanded="false"><i
                                 class="far fa-calendar-check "></i><span
                                 class="hide-menu">Médicos
@@ -161,7 +161,7 @@
                             <i class="far fa-credit-card"></i>
                             <span
                                 class="hide-menu">Inventario</span></a></li>
-                   
+
                     <li class="sidebar-item"><a class="sidebar-link sidebar-link" href="{{url('users')}}"
                                                 aria-expanded="false">
                             <i class="fas fa-user-circle"></i>
