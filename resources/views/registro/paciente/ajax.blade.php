@@ -24,12 +24,12 @@
                         <td>
                             <a href="{{ route('paciente.edit', $item->id) }}" data-toggle="tooltip"
                                data-placement="top" title="Editar">
-                                <i class="fa-solid fa-pen-to-square"></i>Modificar
+                                <i class="fa fa-pencil-square" aria-hidden="true"></i>Modificar
                             </a>
                             &nbsp;&nbsp;
                             <a href="javascript:$('#form-destroy-{{$item->id}}').submit()" data-toggle="tooltip"
                                data-placement="top" title="Dar de baja">
-                                <i class="fa-solid fa-trash"></i>Baja
+                                <i class="fa fa-trash"></i>Baja
                             </a>
                             <form id="form-destroy-{{$item->id}}"
                                   action="{{ route('paciente.destroy', $item->id) }}" method="POST">

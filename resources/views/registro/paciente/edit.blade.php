@@ -1,22 +1,13 @@
 @extends('layout.app')
 @section('content')
-    @component('partitials.nav',['operation'=>'Editar',
-      'menu_icon'=>'mdi mdi-clipboard-text-outline link-icon',
-      'submenu_icon'=>'fa-solid fa-id-card icono',
-      'operation_icon'=>'fa-solid fa-plus',])
-        @slot('menu')
-            Registro
-        @endslot
-        @slot('submenu')
-            Paciente
-        @endslot
-    @endcomponent
+
+
 
     @include('partitials.messages')
 
     <div class="col-lg-12">
         <div class="grid">
-            <p class="grid-header">Registro</p>
+            <p class="grid-header">Editar Paciente</p>
             <div class="grid-body">
                 <form action="{{ route('paciente.update', $paciente->id) }}" method="POST">
                     @csrf
