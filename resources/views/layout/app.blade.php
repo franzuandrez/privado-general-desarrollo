@@ -135,27 +135,30 @@
                     <li class="list-divider"></li>
                     <li class="nav-small-cap"><span class="hide-menu">Registro</span></li>
 
-                    <li class="sidebar-item">
-                        <a class="sidebar-link" href="{{route('cita.index')}}"
-                           aria-expanded="false"><i
-                                                    class="fas fa-hospital-o"></i><span
-                                class="hide-menu">Citas
-                                </span></a>
-                    </li>
 
-                    <li class="sidebar-item">
-                        <a class="sidebar-link" href="{{route('paciente.index')}}"
-                           aria-expanded="false"><i data-feather="tag"
-                                                    class="feather-icon"></i><span
-                                class="hide-menu">Pacientes
-                                </span></a>
-                    </li>
-                    <li class="sidebar-item"><a class="sidebar-link" href="{{url('visit_reasons')}}"
-                                                aria-expanded="false"><i
-                                class="far fa-calendar-check "></i><span
-                                class="hide-menu">Médicos
-                                </span></a>
-                    </li>
+
+                    <li class="sidebar-item"><a class="sidebar-link sidebar-link" href="{{url('cita.index')}}"
+                                                aria-expanded="false">
+                            <i class="fa fa-stethoscope"></i>
+                            <span
+                                class="hide-menu">Citas</span></a></li>
+
+
+
+                    <li class="sidebar-item"><a class="sidebar-link sidebar-link" href="{{route('paciente.index')}}"
+                                                aria-expanded="false">
+                            <i class="fa fa-users"></i>
+                            <span
+                                class="hide-menu">Pacientes</span></a></li>
+
+                    <li class="sidebar-item"><a class="sidebar-link sidebar-link" href="{{route('paciente.index')}}"
+                                                aria-expanded="false">
+                            <i class="fa fa-user-md"></i>
+                            <span
+                                class="hide-menu">Médicos</span></a></li>
+
+
+
                     <li class="sidebar-item"><a class="sidebar-link sidebar-link" href="{{ route('inventario.index')}}"
                                                 aria-expanded="false">
                             <i class="far fa-plus-square"></i>

@@ -1,16 +1,6 @@
 @extends('layout.app')
 @section('content')
-    @component('partitials.nav',['operation'=>'Nuevo',
-      'menu_icon'=>'mdi mdi-clipboard-text-outline link-icon',
-      'submenu_icon'=>'fa-solid fa-cart-flatbed icono',
-      'operation_icon'=>'fa-solid fa-arrow-trend-up',])
-        @slot('menu')
-            Registro
-        @endslot
-        @slot('submenu')
-            Inventario
-        @endslot
-    @endcomponent
+
 
     @include('partitials.messages')
 
