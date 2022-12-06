@@ -1,29 +1,16 @@
 @extends('layout.app')
 @section('content')
 
-
-    @component('partitials.nav',['operation'=>'',
-      'menu_icon'=>'mdi mdi-clipboard-text-outline link-icon',
-      'submenu_icon'=>'fa-solid fa-cart-flatbed icono',
-      'operation_icon'=>'',])
-        @slot('menu')
-            Registro
-        @endslot
-        @slot('submenu')
-            Inventario
-        @endslot
-    @endcomponent
-
     @include('partitials.messages')
 
     <div class="row">
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <a href="{{route('inventario.create')}}" class="btn btn-primary">
-                    <i class="fa-solid fa-arrow-trend-up"></i>&nbsp;&nbsp;Nuevo Movimiento
+                    <i class="fa fa-plus"></i>&nbsp;&nbsp;Nuevo Movimiento
                 </a>
 
                 <a href="{{route('inventario.reduce')}}" class="btn btn-danger">
-                    <i class="fa-solid fa-arrow-trend-down"></i>&nbsp;&nbsp;Reducción Inventario
+                    <i class="fa fa-minus"></i>&nbsp;&nbsp;Reducción Inventario
                 </a>
 
             {{--            @component('partitials.btn-ver',['url'=>'javascript:ver("laptop")'])--}}

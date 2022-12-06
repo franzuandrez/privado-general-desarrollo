@@ -2,17 +2,6 @@
 @section('content')
 
 
-    @component('partitials.nav',['operation'=>'',
-      'menu_icon'=>'mdi mdi-clipboard-text-outline link-icon',
-      'submenu_icon'=>'fa-solid fa-bell-concierge icono',
-      'operation_icon'=>'',])
-        @slot('menu')
-            Servicio
-        @endslot
-        @slot('submenu')
-            Cita
-        @endslot
-    @endcomponent
 
     @include('partitials.messages')
 

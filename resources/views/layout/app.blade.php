@@ -38,7 +38,7 @@
         }
     </style>
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    @yield('map')
+
 
 </head>
 
@@ -135,14 +135,8 @@
                     <li class="list-divider"></li>
                     <li class="nav-small-cap"><span class="hide-menu">Registro</span></li>
 
-                    <li class="sidebar-item">
-                        <a class="sidebar-link" href="{{route('cita.index')}}"
-                           aria-expanded="false"><i data-feather="tag"
-                                                    class="feather-icon"></i><span
-                                class="hide-menu">Citas
-                                </span></a>
-                    </li>
 
+<<<<<<< HEAD
                     <li class="sidebar-item">
                         <a class="sidebar-link" href="{{route('paciente.index')}}"
                            aria-expanded="false"><i data-feather="tag"
@@ -156,9 +150,35 @@
                                 class="hide-menu">Médicos
                                 </span></a>
                     </li>
+=======
+
+                    <li class="sidebar-item"><a class="sidebar-link sidebar-link" href="{{url('cita.index')}}"
+                                                aria-expanded="false">
+                            <i class="fa fa-stethoscope"></i>
+                            <span
+                                class="hide-menu">Citas</span></a></li>
+
+
+
+                    <li class="sidebar-item"><a class="sidebar-link sidebar-link" href="{{route('paciente.index')}}"
+                                                aria-expanded="false">
+                            <i class="fa fa-users"></i>
+                            <span
+                                class="hide-menu">Pacientes</span></a></li>
+
+                    <li class="sidebar-item"><a class="sidebar-link sidebar-link" href="{{route('paciente.index')}}"
+                                                aria-expanded="false">
+                            <i class="fa fa-user-md"></i>
+                            <span
+                                class="hide-menu">Médicos</span></a></li>
+
+
+
+>>>>>>> 0aabf4dcbcbd5d9c2e5ebbc5df9ccb7a1c1e0e0f
                     <li class="sidebar-item"><a class="sidebar-link sidebar-link" href="{{ route('inventario.index')}}"
                                                 aria-expanded="false">
-                            <i class="far fa-credit-card"></i>
+                            <i class="far fa-plus-square"></i>
+
                             <span
                                 class="hide-menu">Inventario</span></a></li>
 
