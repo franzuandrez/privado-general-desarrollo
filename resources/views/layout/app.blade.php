@@ -136,23 +136,14 @@
                     <li class="nav-small-cap"><span class="hide-menu">Registro</span></li>
 
 
-<<<<<<< HEAD
-                    <li class="sidebar-item">
-                        <a class="sidebar-link" href="{{route('paciente.index')}}"
-                           aria-expanded="false"><i data-feather="tag"
-                                                    class="feather-icon"></i><span
-                                class="hide-menu">Pacientes
-                                </span></a>
-                    </li>
                     <li class="sidebar-item"><a class="sidebar-link" href="{{ route('medico.index') }}"
                                                 aria-expanded="false"><i
                                 class="far fa-calendar-check "></i><span
                                 class="hide-menu">Médicos
                                 </span></a>
                     </li>
-=======
 
-                    <li class="sidebar-item"><a class="sidebar-link sidebar-link" href="{{url('cita.index')}}"
+                    <li class="sidebar-item"><a class="sidebar-link sidebar-link" href="{{ route('cita.index')}}"
                                                 aria-expanded="false">
                             <i class="fa fa-stethoscope"></i>
                             <span
@@ -166,15 +157,7 @@
                             <span
                                 class="hide-menu">Pacientes</span></a></li>
 
-                    <li class="sidebar-item"><a class="sidebar-link sidebar-link" href="{{route('paciente.index')}}"
-                                                aria-expanded="false">
-                            <i class="fa fa-user-md"></i>
-                            <span
-                                class="hide-menu">Médicos</span></a></li>
 
-
-
->>>>>>> 0aabf4dcbcbd5d9c2e5ebbc5df9ccb7a1c1e0e0f
                     <li class="sidebar-item"><a class="sidebar-link sidebar-link" href="{{ route('inventario.index')}}"
                                                 aria-expanded="false">
                             <i class="far fa-plus-square"></i>
