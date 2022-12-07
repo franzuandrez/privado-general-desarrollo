@@ -76,7 +76,7 @@
 
                                 <div class="form-group row showcase_row_area">
                                     <div class="col-md-3 showcase_text_area">
-                                        <label for="inputType12">OBSERVACIONES</label>
+                                        <label for="inputType12">Observaciones</label>
                                     </div>
                                     <div class="col-md-9 showcase_content_area">
                                         <textarea class="form-control" name="observaciones" cols="30"

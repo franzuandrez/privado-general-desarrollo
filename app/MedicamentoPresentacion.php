@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class MedicamentoPresentacion extends Model
 {
     protected $table = 'medicamento_presentacion';
-    protected $fillable = ['id_medicamento', 'id_presentacion'];
+    protected $fillable = ['id_medicamento', 'id_presentacion','precio'];
     public $timestamps = false;
 
     public function scopeActive(Builder $query)
@@ -19,7 +19,7 @@ class MedicamentoPresentacion extends Model
     public function scopeQueryPresentaciones(Builder $query)
     {
         return $query->join('presentacion', 'presentacion.id', '=', 'medicamento_presentacion.id_presentacion')
-            ->select('presentacion.*');
+            ->select('presentacion.*','medicamento_presentacion.precio');
     }
 
 }

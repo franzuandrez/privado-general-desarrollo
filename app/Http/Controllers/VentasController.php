@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Cita;
+use App\RecetaEnc;
 use App\Ventas;
 use Illuminate\Http\Request;
 
@@ -20,6 +21,19 @@ class VentasController extends Controller
 
 
         return view('servicio.ventas.index', compact('collection'));
+    }
+
+
+    public function create()
+    {
+
+        $recetas = RecetaEnc::select('receta_enc.*', 'paciente.nombres', 'paciente.apellidos')
+            ->join('cita', 'cita.id', '=', 'receta_enc.id_cita')
+            ->join('paciente', 'paciente.id', '=', 'cita.id_paciente')
+            ->where('receta_enc.atendido', '1')->get();
+
+
+        return view('servicio.ventas.create', compact('recetas'));
     }
 
     public function show($id)

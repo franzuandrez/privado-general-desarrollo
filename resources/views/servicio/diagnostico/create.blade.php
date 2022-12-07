@@ -36,7 +36,6 @@
                     <div class="col-lg-6">
                         <div class="col-lg-12">
                             <div class="grid">
-                                <p class="grid-header">Registro</p>
                                 <div class="grid-body">
                                     <div class="item-wrapper">
                                         <div class="row">
@@ -58,7 +57,7 @@
                         <div class="container-fluid">
                             <div class="col-lg-12">
                                 <div class="grid">
-                                    <p class="grid-header">RECETA</p>
+                                    <p class="grid-header">Receta</p>
                                     <div class="grid-body">
 
                                         <div class="item-wrapper">
@@ -66,8 +65,10 @@
                                                 <div class="col-md-4 col-sm-6">
                                                     <div class="form-group">
                                                         <label for="inputType1">Medicamento</label>
-                                                        <select name="medicamento" class="js-example-basic-single form-control"
-                                                                onchange="cargarPresentaciones($(this).val())" id="medicamentos">
+                                                        <select name="medicamento"
+                                                                class="js-example-basic-single form-control"
+                                                                onchange="cargarPresentaciones($(this).val())"
+                                                                id="medicamentos">
                                                             <option value="">-- SELECCIONAR --</option>
                                                             @foreach($medicamentos as $medicamento)
                                                                 <option value="{{ $medicamento->id }}">
@@ -81,7 +82,9 @@
                                                 <div class="col-md-4 col-sm-6">
                                                     <div class="form-group">
                                                         <label for="inputType1">Presentación</label>
-                                                        <select name="presentacion" class="js-example-basic-single form-control"
+                                                        <select name="presentacion"
+                                                                class="js-example-basic-single form-control"
+                                                                onchange="mostrar_precio()"
                                                                 id="presentaciones">
                                                             <option value="">-- SELECCIONAR --</option>
                                                         </select>
@@ -98,32 +101,59 @@
                                                 <div class="col-md-4 col-sm-6">
                                                     <div class="form-group">
                                                         <label for="inputType1">Cantidad</label>
-                                                        <input type="number" class="form-control" id="cantidad">
+                                                        <input type="number"
+                                                               onkeyup="calcular_subtotal()"
+                                                               class="form-control" id="cantidad">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4 col-sm-6">
+                                                    <div class="form-group">
+                                                        <label for="inputType1">Precio</label>
+                                                        <input type="number" readonly class="form-control" id="precio">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4 col-sm-6">
+                                                    <div class="form-group">
+                                                        <label for="inputType1">Total</label>
+                                                        <input type="number" readonly class="form-control"
+                                                               value="0"
+                                                               id="total">
                                                     </div>
                                                 </div>
                                             </div>
 
                                             <div class="row mb-3 mx-auto">
-                                                <button class="btn btn-primary" style="margin-left: auto; margin-right: auto"
+                                                <button class="btn btn-primary"
+                                                        style="margin-left: auto; margin-right: auto"
                                                         onclick="javascript:agregarItems()">
-                                                    <i class="fa-solid fa-plus icono"></i>&nbsp;AGREGAR
+                                                    Agregar
                                                 </button>
                                             </div>
 
                                             <div class="row">
                                                 <div class="table-responsive">
-                                                    <table class="table table-striped table-bordered table-condensed table-hover  ">
+                                                    <table
+                                                        class="table table-striped table-bordered table-condensed table-hover  ">
                                                         <thead>
                                                         <tr>
                                                             <th style="background-color: #F8AC10 !important; color: #fff;"></th>
-                                                            <th style="background-color: #F8AC10 !important; color: #fff;">MEDICAMENTO
+                                                            <th style="background-color: #F8AC10 !important; color: #fff;">
+                                                                Medicamento
                                                             </th>
                                                             <th style="background-color: #F8AC10 !important; color: #fff;">
-                                                                PRESENTACION
+                                                                Presentacion
                                                             </th>
-                                                            <th style="background-color: #F8AC10 !important; color: #fff;">CANTIDAD</th>
                                                             <th style="background-color: #F8AC10 !important; color: #fff;">
-                                                                INDICACIONES
+                                                                Cantidad
+                                                            </th>
+                                                            <th style="background-color: #F8AC10 !important; color: #fff;">
+                                                                Precio
+                                                            </th>
+                                                            <th style="background-color: #F8AC10 !important; color: #fff;">
+                                                                Total
+                                                            </th>
+                                                            <th style="background-color: #F8AC10 !important; color: #fff;">
+                                                                Indicaciones
                                                             </th>
                                                         </tr>
                                                         </thead>
@@ -134,6 +164,14 @@
                                                             </td>
                                                         </tr>
                                                         </tbody>
+                                                        <tfoot>
+                                                        <tr>
+                                                            <td colspan="5">Total</td>
+                                                            <td colspan="2"
+                                                                id="grand_total">
+                                                            </td>
+                                                        </tr>
+                                                        </tfoot>
                                                     </table>
 
                                                 </div>
@@ -142,19 +180,23 @@
                                         <br>
                                         <br>
                                         <hr>
-                                        <div class="row" style="text-align:center">
-                                            <div class="col-12">
-                                                <a href="{{ route('cita.index') }}" class="btn btn-success">
-                                                    <i class="fa-solid fa-ban icono"></i>&nbsp;&nbsp;
-                                                    Cancelar
-                                                </a>
 
+                                        <div class="row">
+                                            <div class="col-12">
                                                 <button class="btn btn-primary" type="button" onclick="grabarDatos()">
-                                                    <i class="fa-regular fa-floppy-disk icono"></i>&nbsp;&nbsp;Guardar
+                                                    Recetar
                                                 </button>
+                                                <button class="btn btn-secondary" type="button"
+                                                        onclick="grabarDatos(0)">
+                                                    Recetar y despachar
+                                                </button>
+                                                <a class="btn btn-dark" href="{{ route('cita.index') }}" role="button">
+                                                    Regresar
+                                                </a>
 
                                             </div>
                                         </div>
+
                                     </div>
                                 </div>
                             </div>
@@ -184,6 +226,25 @@
 @section('scripts')
     <script src="{{ asset('js/grid-diagnostico.js') }}"></script>
     <script>
+
+        let presentaciones = [];
+        let grand_total = 0;
+
+        function mostrar_precio() {
+            const id = document.getElementById('presentaciones').value;
+            const precio = presentaciones.filter(d => d.id == id)[0];
+
+            document.getElementById('precio').value = precio.precio;
+        }
+
+        function calcular_subtotal() {
+
+            const cantidad = document.getElementById('cantidad').value;
+            const precio = parseFloat(document.getElementById('precio').value);
+            const total = parseFloat(cantidad) * parseFloat(precio);
+            document.getElementById('total').value = total;
+        }
+
         $(function () {
             $('.js-example-basic-single').select2();
         });
@@ -200,6 +261,10 @@
                         response.data.forEach((val, idx) => {
                             options += `<option value="${val.id}">${val.presentacion}</option>`;
                         });
+                        presentaciones = response.data;
+                        document.getElementById('precio').value = ""
+                        document.getElementById('total').value = ""
+                        document.getElementById('cantidad').value = ""
 
                         $('#presentaciones').html(options);
 
@@ -230,19 +295,30 @@
             let indicaciones = $('#indicaciones').val();
             let cantidad = $('#cantidad').val();
 
-            diagnostico.addItem(id_registro, id_medicamento, id_presentacion, cantidad, indicaciones, medicamento.trim(), presentacion.trim())
+            const precio = parseFloat(document.getElementById('precio').value);
+            const total = parseFloat(document.getElementById('total').value);
+            grand_total = total + grand_total;
+            document.getElementById('grand_total').textContent = 'Q ' + grand_total;
+
+            diagnostico.addItem(id_registro, id_medicamento, id_presentacion, cantidad, indicaciones, medicamento.trim(), presentacion.trim(), precio, total)
             cargarGrid();
+            document.getElementById('precio').value = ""
+            document.getElementById('total').value = ""
+            document.getElementById('cantidad').value = ""
+            document.getElementById('indicaciones').value = ""
         }
 
         function cargarGrid() {
             let rows = ``;
-
+            console.log(diagnostico.getAll());
             diagnostico.getAll().forEach((val, idx) => {
                 rows += `<tr>`;
-                rows += `<td><a href="javascript:eliminarItem(${val.id})"> <i class="fa-solid fa-xmark text-danger"></i></a></td>`;
+                rows += `<td><a href="javascript:eliminarItem(${val.id})"> <i class="fa fa-trash text-danger"></i></a></td>`;
                 rows += `<td>${val.medicamento}</td>`;
                 rows += `<td>${val.presentacion}</td>`;
                 rows += `<td>${val.cantidad}</td>`;
+                rows += `<td>Q. ${val.precio}</td>`;
+                rows += `<td>Q. ${val.total}</td>`;
                 rows += `<td>${val.indicaciones}</td>`;
                 rows += `</tr>`;
             });
@@ -257,7 +333,7 @@
             cargarGrid();
         }
 
-        async function grabarDatos() {
+        async function grabarDatos(solo_receta = 1) {
             let inputDiagnostico = $('#diagnostico').val();
 
             if (inputDiagnostico == "") {
@@ -267,12 +343,12 @@
             }
 
             if (diagnostico.getTotalItems() == 0) {
-                alert('Añada los medicamentos para la receta');
+                alert('Añada al menos un medicamento  la receta');
                 return;
             }
 
             let formulario = $('#form-receta');
-            let data = formulario.serialize() + `&diagnostico=${inputDiagnostico}&receta=${JSON.stringify(diagnostico.getAll())}`;
+            let data = formulario.serialize() + `&solo_receta=${solo_receta}&diagnostico=${inputDiagnostico}&receta=${JSON.stringify(diagnostico.getAll())}`;
 
 
             await $.ajax({
@@ -280,7 +356,8 @@
                 method: 'post',
                 data: data,
                 success: function (response) {
-                    alert(response.message)
+                    window.location.href = "{{url('/receta')}}" +'/'+response.data;
+
                 }, error: function (error) {
                     alert(response.message)
                 }

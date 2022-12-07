@@ -4,12 +4,22 @@ class main {
         this.data = []
     }
 
-    addItem(id, id_medicamento, id_presentacion, cantidad, indicaciones, medicamento, presentacion) {
+    addItem(id, id_medicamento, id_presentacion, cantidad, indicaciones, medicamento, presentacion, precio, total) {
 
         let find = this.findItem(id_medicamento, id_presentacion)
-
+        console.log(precio, total)
         if (!find) {
-            this.data.push({'id': id, 'id_medicamento': id_medicamento, 'id_presentacion': id_presentacion, 'cantidad': cantidad, 'indicaciones': indicaciones, 'medicamento': medicamento, 'presentacion': presentacion});
+            this.data.push({
+                'id': id,
+                'id_medicamento': id_medicamento,
+                'id_presentacion': id_presentacion,
+                'cantidad': cantidad,
+                'indicaciones': indicaciones,
+                'medicamento': medicamento,
+                'presentacion': presentacion,
+                'precio': precio,
+                'total': total
+            });
         }
     }
 
@@ -47,7 +57,7 @@ class main {
         return this.data;
     }
 
-    getTotalItems(){
+    getTotalItems() {
         return Object.keys(this.getAll()).length
     }
 }
