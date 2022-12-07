@@ -57,12 +57,17 @@ class PacienteController extends Controller
     {
         try {
             $paciente = Paciente::findOrFail($id);
-            $paciente->nombres = $request->nombres;
-            $paciente->apellidos = $request->apellidos;
+
+            $paciente->primer_nombre = $request->primer_nombre;
+            $paciente->segundo_nombre = $request->segundo_nombre;
+            $paciente->primer_apellido = $request->primer_apellido;
+            $paciente->segundo_apellido = $request->segundo_apellido;
+            $paciente->nombres = $request->primer_nombre.' '.$paciente->segundo_nombre;
+            $paciente->apellidos = $request->primer_apellido.' '.$paciente->segundo_apellido;
             $paciente->fecha_nacimiento = $request->fecha_nacimiento;
             $paciente->update();
 
-            return redirect()->route('paciente.index')->with('update', 'Registro actualizado');
+            return redirect()->route('paciente.index')->with('update', 'Actualización correcta');
         } catch (\Exception $e) {
             return redirect()->back()->with('error', 'Ha ocurrido un error por favor inténtelo nuevamente');
         }

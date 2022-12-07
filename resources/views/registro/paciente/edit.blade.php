@@ -5,62 +5,80 @@
 
     @include('partitials.messages')
 
-    <div class="col-lg-12">
-        <div class="grid">
-            <p class="grid-header">Editar Paciente</p>
-            <div class="grid-body">
-                <form action="{{ route('paciente.update', $paciente->id) }}" method="POST">
-                    @csrf
-                    <input name="_method" type="hidden" value="PATCH">
 
-                    <div class="item-wrapper">
-                        <div class="row mb-3">
-                            <div class="col-md-8 mx-auto">
-                                <div class="form-group row showcase_row_area">
-                                    <div class="col-md-3 showcase_text_area">
-                                        <label for="inputType1">Nombres</label>
-                                    </div>
-                                    <div class="col-md-9 showcase_content_area">
-                                        <input type="text" name="nombres" class="form-control" value="{{ $paciente->nombres }}" autofocus>
-                                    </div>
-                                </div>
-                                <div class="form-group row showcase_row_area">
-                                    <div class="col-md-3 showcase_text_area">
-                                        <label for="inputType12">Apellidos</label>
-                                    </div>
-                                    <div class="col-md-9 showcase_content_area">
-                                        <input type="text" name="apellidos" class="form-control" value="{{ $paciente->apellidos }}">
-                                    </div>
-                                </div>
-                                <div class="form-group row showcase_row_area">
-                                    <div class="col-md-3 showcase_text_area">
-                                        <label for="inputType13">Fecha de nacimiento</label>
-                                    </div>
-                                    <div class="col-md-9 showcase_content_area">
-                                        <input type="text" name="fecha_nacimiento" class="form-control datepicker"
-                                               value="{{ $paciente->fecha_nacimiento->format('Y-m-d') }}">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <hr>
-                    <div class="row" style="text-align:center">
-                        <div class="col-12">
-                            <a href="{{ route('paciente.index') }}" class="btn btn-success">
-                                <i class="fa-solid fa-ban icono"></i>&nbsp;&nbsp;
-                                Cancelar
-                            </a>
-
-                            <button class="btn btn-primary" type="submit">
-                                <i class="fa-regular fa-floppy-disk icono"></i>&nbsp;&nbsp;Guardar
-                            </button>
-
-                        </div>
-                    </div>
-                </form>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                <p class="grid-header">Editar Paciente</p>
             </div>
         </div>
+        <form action="{{ route('paciente.update', $paciente->id) }}" method="POST">
+            @csrf
+            <input hidden name="_method" value="PATCH">
+
+            <div class="row">
+                <div class="col-md-4 col-lg-4">
+                    <div class="form-group">
+                        <label for="cui">CUI</label>
+                        <input type="text" name="cui" class="form-control"
+                               id="cui"
+                               value="{{$paciente->cui}}" autofocus>
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg-4">
+                    <div class="form-group">
+                        <label for="primer_nombre">Primer nombre</label>
+                        <input type="text" name="primer_nombre" class="form-control"
+                               id="primer_nombre"
+                               value="{{$paciente->primer_nombre}}" autofocus>
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg-4">
+                    <div class="form-group">
+                        <label for="segundo_nombre">Segundo nombre</label>
+                        <input type="text" name="segundo_nombre" class="form-control"
+                               id="segundo_nombre"
+                               value="{{$paciente->segundo_nombre}}" >
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg-4">
+                    <div class="form-group">
+                        <label for="primer_apellido">Primer apellido</label>
+                        <input type="text" name="primer_apellido" class="form-control"
+                               id="primer_apellido"
+                               value="{{$paciente->primer_apellido}}" >
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg-4">
+                    <div class="form-group">
+                        <label for="segundo_apellido">Segundo apellido</label>
+                        <input type="text" name="segundo_apellido" class="form-control"
+                               value="{{$paciente->segundo_apellido}}" >
+                    </div>
+                </div>
+                <div class="col-4 col-md-4 col-sm-6 col-lg-3">
+                    <div class="form-group">
+                        <label for="fecha_nacimiento">Fecha Nacimiento</label>
+                        <input type="date"
+                               name="fecha_nacimiento"
+                               value="{{$paciente->fecha_nacimiento}}"
+                               class="form-control">
+                    </div>
+                </div>
+            </div>
+            <br><br>
+            <div class="row">
+                <div class="col-12">
+                    <button type="submit" class="btn btn-primary">Guardar</button>
+                    <a class="btn btn-dark" href="{{ route('paciente.index') }}" role="button">
+                        Regresar
+                    </a>
+
+                </div>
+            </div>
+
+
+        </form>
     </div>
 
 @endsection
