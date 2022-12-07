@@ -78,11 +78,12 @@ class PacienteController extends Controller
     {
         $paciente = Paciente::findOrFail($id);
 
-        $citas = Cita::leftJoin('receta_enc', 'receta_enc.id_cita', '=', 'cita.id')
+        $citas = Cita::select('cita.*','receta_enc.diagnostico','receta_enc.fecha','receta_enc.id_cita')
+        ->leftJoin('receta_enc', 'receta_enc.id_cita', '=', 'cita.id')
             ->where('cita.id_paciente', $id)
             ->get();
 
-
+      
 
 
 
