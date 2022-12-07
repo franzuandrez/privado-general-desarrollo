@@ -5,7 +5,7 @@
     <style>
         . {
             font-family: sans-serif;
-            font-size: 10px !important;
+            font-size: 12px !important;
         }
 
         .styled-table {
@@ -26,19 +26,17 @@
         }
 
         .styled-table tbody tr {
-            border-bottom: 1px solid #dddddd;
+            border-bottom: 1px dashed #dddddd;
         }
 
-        .styled-table tbody tr:nth-of-type(even) {
-            background-color: #f3f3f3;
-        }
+
 
         .bold {
             font-weight: bold
         }
 
         .encabezado-detalle {
-            width: 200px;
+            width: 100px;
         }
     </style>
 </head>
@@ -53,7 +51,7 @@
         </td>
     </tr>
 </table>
-<hr>
+
 <br><br>
 
 
@@ -110,7 +108,7 @@
 <br><br><br><br><br>
 <div style="text-align: center;">
     <p>f._________________________________________</p>
-    <p>Dr(a). {{ $receta[0]->doctor_atendio }}</p>
+    <p>Médico. {{ $receta[0]->doctor_atendio }}</p>
 </div>
 
 <br><br><br><br><br>
