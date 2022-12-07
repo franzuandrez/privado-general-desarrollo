@@ -2,10 +2,14 @@
 
 use App\Http\Controllers\CitaController;
 use App\Http\Controllers\DiagnosticoController;
+use App\Http\Controllers\MedicamentoController;
 use App\Http\Controllers\MedicoController;
 use App\Http\Controllers\InventarioController;
 use App\Http\Controllers\PacienteController;
 use App\Http\Controllers\PDFController;
+use App\Http\Controllers\PersonalController;
+use App\Http\Controllers\PresentacionController;
+use App\Http\Controllers\RolController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -65,6 +69,40 @@ Route::group(['namespace' => 'Dashboard', 'middleware' => ['auth']], function ()
 //Route::get('medico/edit/{id}', [MedicoController::class, 'edit'])->name('medico.edit');
 //Route::patch('medico/update/{id}', [MedicoController::class, 'update'])->name('medico.update');
     Route::delete('medico/delete/{id}', [MedicoController::class, 'destroy'])->name('medico.destroy');
+
+
+
+    Route::get('medicamento', [MedicamentoController::class, 'index'])->name('medicamento.index');
+    Route::get('medicamento/create', [MedicamentoController::class, 'create'])->name('medicamento.create');
+    Route::post('medicamento/store', [MedicamentoController::class, 'store'])->name('medicamento.store');
+    Route::get('medicamento/edit/{id}', [MedicamentoController::class, 'edit'])->name('medicamento.edit');
+    Route::patch('medicamento/update/{id}', [MedicamentoController::class, 'update'])->name('medicamento.update');
+    Route::delete('medicamento/delete/{id}', [MedicamentoController::class, 'destroy'])->name('medicamento.destroy');
+
+
+    Route::get('presentacion', [PresentacionController::class, 'index'])->name('presentacion.index');
+    Route::get('presentacion/create', [PresentacionController::class, 'create'])->name('presentacion.create');
+    Route::post('presentacion/store', [PresentacionController::class, 'store'])->name('presentacion.store');
+    Route::get('presentacion/edit/{id}', [PresentacionController::class, 'edit'])->name('presentacion.edit');
+    Route::patch('presentacion/update/{id}', [PresentacionController::class, 'update'])->name('presentacion.update');
+    Route::delete('presentacion/delete/{id}', [PresentacionController::class, 'destroy'])->name('presentacion.destroy');
+
+
+    Route::get('personal', [PersonalController::class, 'index'])->name('personal.index');
+    Route::get('personal/create', [PersonalController::class, 'create'])->name('personal.create');
+    Route::post('personal/store', [PersonalController::class, 'store'])->name('personal.store');
+    Route::get('personal/edit/{id}', [PersonalController::class, 'edit'])->name('personal.edit');
+    Route::patch('personal/update/{id}', [PersonalController::class, 'update'])->name('personal.update');
+    Route::delete('personal/delete/{id}', [PersonalController::class, 'destroy'])->name('personal.destroy');
+
+
+    Route::get('tipo_personal', [RolController::class, 'index'])->name('tipo_personal.index');
+    Route::get('tipo_personal/create', [RolController::class, 'create'])->name('tipo_personal.create');
+    Route::post('tipo_personal/store', [RolController::class, 'store'])->name('tipo_personal.store');
+    Route::get('tipo_personal/edit/{id}', [RolController::class, 'edit'])->name('tipo_personal.edit');
+    Route::patch('tipo_personal/update/{id}', [RolController::class, 'update'])->name('tipo_personal.update');
+    Route::delete('tipo_personal/delete/{id}', [RolController::class, 'destroy'])->name('tipo_personal.destroy');
+
 });
 
 

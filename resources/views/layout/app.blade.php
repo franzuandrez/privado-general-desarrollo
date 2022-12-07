@@ -135,16 +135,27 @@
                                                                          class="feather-icon"></i><span
                                 class="hide-menu">Inicio</span></a></li>
                     <li class="list-divider"></li>
-                    <li class="nav-small-cap"><span class="hide-menu">Registro</span></li>
-
-
-
+                    <li class="nav-small-cap"><span class="hide-menu">Operaciones</span></li>
                     <li class="sidebar-item"><a class="sidebar-link sidebar-link" href="{{route('cita.index')}}"
                                                 aria-expanded="false">
                             <i class="fa fa-stethoscope"></i>
                             <span
                                 class="hide-menu">Citas</span></a></li>
+                    <li class="sidebar-item"><a class="sidebar-link sidebar-link" href="{{ route('inventario.index')}}"
+                                                aria-expanded="false">
+                            <i class=" fa fa-book"></i>
 
+                            <span
+                                class="hide-menu">Ventas</span></a></li>
+                    <li class="sidebar-item"><a class="sidebar-link sidebar-link" href="{{ route('inventario.index')}}"
+                                                aria-expanded="false">
+                            <i class="far fa-window-maximize"></i>
+
+                            <span
+                                class="hide-menu">Inventario</span></a></li>
+
+                    <li class="list-divider"></li>
+                    <li class="nav-small-cap"><span class="hide-menu">Registro</span></li>
 
 
                     <li class="sidebar-item"><a class="sidebar-link sidebar-link" href="{{route('paciente.index')}}"
@@ -160,21 +171,31 @@
                                 class="hide-menu">Médicos</span></a></li>
 
 
-
-                    <li class="sidebar-item"><a class="sidebar-link sidebar-link" href="{{ route('inventario.index')}}"
-                                                aria-expanded="false">
-                            <i class="far fa-plus-square"></i>
+                    <li class="sidebar-item"><a class="sidebar-link sidebar-link" href="{{ route('personal.index')}}"
+                                                                                                         aria-expanded="false">
+                            <i class="fas  fa-users"></i>
 
                             <span
-                                class="hide-menu">Inventario</span></a></li>
+                                class="hide-menu">Personal</span></a></li>
 
+                    <li class="sidebar-item"><a class="sidebar-link sidebar-link" href="{{ route('medicamento.index')}}"
+                                                aria-expanded="false">
+                            <i class="fas  fa-medkit"></i>
+
+                            <span
+                                class="hide-menu">Medicamento</span></a></li>
+                    <li class="sidebar-item"><a class="sidebar-link sidebar-link" href="{{ route('presentacion.index')}}"
+                                                aria-expanded="false">
+                            <i class="fa fa fa-th-large"></i>
+
+                            <span
+                                class="hide-menu">Presentación</span></a></li>
                     <li class="sidebar-item"><a class="sidebar-link sidebar-link" href="{{url('users')}}"
                                                 aria-expanded="false">
                             <i class="fas fa-user-circle"></i>
                             <span
                                 class="hide-menu">Usuarios</span></a></li>
                     <li class="list-divider"></li>
-
 
 
                 </ul>
