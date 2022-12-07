@@ -1,22 +1,12 @@
 @extends('layout.app')
 @section('content')
-    @component('partitials.nav',['operation'=>'Reducción',
-      'menu_icon'=>'mdi mdi-clipboard-text-outline link-icon',
-      'submenu_icon'=>'fa-solid fa-cart-flatbed icono',
-      'operation_icon'=>'fa-solid fa-arrow-trend-down',])
-        @slot('menu')
-            Registro
-        @endslot
-        @slot('submenu')
-            Inventario
-        @endslot
-    @endcomponent
+
 
     @include('partitials.messages')
 
     <div class="col-lg-12">
         <div class="grid">
-            <p class="grid-header">Reducción</p>
+            <p class="grid-header">Salidas</p>
             <div class="grid-body">
                 <form action="{{ route('inventario.restar') }}" method="POST">
                     @csrf

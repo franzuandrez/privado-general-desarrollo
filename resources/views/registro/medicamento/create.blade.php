@@ -1,80 +1,65 @@
 @extends('layout.app')
 @section('content')
-    @component('partitials.nav',['operation'=>'Nuevo',
-      'menu_icon'=>'mdi mdi-clipboard-text-outline link-icon',
-      'submenu_icon'=>'fa-solid fa-id-card icono',
-      'operation_icon'=>'fa-solid fa-plus',])
-        @slot('menu')
-            Registro
-        @endslot
-        @slot('submenu')
-            Medicamento
-        @endslot
-    @endcomponent
+
 
     @include('partitials.messages')
 
-    <div class="col-lg-12">
-        <div class="grid">
-            <p class="grid-header">Registro</p>
-            <div class="grid-body">
-                <form action="{{ route('medicamento.store') }}" method="POST">
-                    @csrf
-
-                    <div class="item-wrapper">
-                        <div class="row mb-3">
-                            <div class="col-md-8 mx-auto">
-                                <div class="form-group row showcase_row_area">
-                                    <div class="col-md-3 showcase_text_area">
-                                        <label for="inputType1">Nombre</label>
-                                    </div>
-                                    <div class="col-md-9 showcase_content_area">
-                                        <input type="text" name="nombre" class="form-control"
-                                               value="{{ old('nombre') }}" autofocus>
-                                    </div>
-                                </div>
-                                <div class="form-group row showcase_row_area">
-                                    <div class="col-md-3 showcase_text_area">
-                                        <label for="inputType12">Descripción</label>
-                                    </div>
-                                    <div class="col-md-9 showcase_content_area">
-                                        <input type="text" name="descripcion" class="form-control"
-                                               value="{{ old('descripcion') }}">
-                                    </div>
-                                </div>
-                                <div class="form-group row showcase_row_area">
-                                    <div class="col-md-3 showcase_text_area">
-                                        <label for="inputType12">Presentaciones</label>
-                                    </div>
-                                    <div class="col-md-9 showcase_content_area">
-                                        <select name="presentaciones[]" multiple class="form-control">
-                                            @foreach($presentaciones as $presentacion)
-                                                <option value="{{ $presentacion->id }}">{{ $presentacion->presentacion }}</option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <hr>
-                    <div class="row" style="text-align:center">
-                        <div class="col-12">
-                            <a href="{{ route('medicamento.index') }}" class="btn btn-success">
-                                <i class="fa-solid fa-ban icono"></i>&nbsp;&nbsp;
-                                Cancelar
-                            </a>
-
-                            <button class="btn btn-primary" type="submit">
-                                <i class="fa-regular fa-floppy-disk icono"></i>&nbsp;&nbsp;Guardar
-                            </button>
-
-                        </div>
-                    </div>
-                </form>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                <p class="grid-header">Registro de medicamento</p>
             </div>
         </div>
+        <form action="{{ route('medicamento.store') }}" method="POST">
+            @csrf
+            <div class="row">
+                <div class="col-md-6 col-lg-6">
+                    <div class="form-group">
+                        <label for="presentacion">Nombre</label>
+                        <input type="text" name="nombre" class="form-control"
+                               value="{{ old('nombre') }}" autofocus>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-6">
+                    <div class="form-group">
+                        <label for="descripcion">Descripción</label>
+                        <input type="text" name="descripcion" class="form-control"
+                               value="{{ old('descripcion') }}" autofocus>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-6">
+                    <div class="form-group">
+                        <label for="descripcion">Presentaciones</label>
+                        <select name="presentaciones[]"  class="form-control">
+                            @foreach($presentaciones as $presentacion)
+                                <option value="{{ $presentacion->id }}">{{ $presentacion->presentacion }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-6">
+                    <div class="form-group">
+                        <label for="precio">Precio</label>
+                        <input type="text" name="precio" class="form-control"
+                               value="{{ old('precio') }}" autofocus>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="col-12">
+                    <button type="submit" class="btn btn-primary">Guardar</button>
+                    <a class="btn btn-dark" href="{{ route('medicamento.index') }}" role="button">
+                        Regresar
+                    </a>
+
+                </div>
+            </div>
+        </form>
     </div>
+
+
 
 @endsection
 @section('scripts')

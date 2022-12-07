@@ -1,183 +1,178 @@
 @extends('layout.app')
 @section('content')
-    @component('partitials.nav',['operation'=>'',
-      'menu_icon'=>'fa-solid fa-bell-concierge',
-      'submenu_icon'=>'fa-solid fa-stethoscope icono',
-      'operation_icon'=>'',])
-        @slot('menu')
-            Servicio
-        @endslot
-        @slot('submenu')
-            Diagnóstico
-        @endslot
-    @endcomponent
 
     @include('partitials.messages')
 
-    <div class="row">
-        <div class="col-lg-6">
-            <div class="col-lg-12">
-                <div class="grid">
-                    <p class="grid-header">Datos del paciente</p>
-                    <div class="grid-body">
-                        <div class="item-wrapper">
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label for="">Nombre</label>
-                                        <input readonly type="text" class="form-control"
-                                               value="{{ $paciente->nombres }}">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="col col-md-12">
+                            <div class="grid">
+                                <h4 class="card-title">Diagnóstico</h4>
+
+                            </div>
+                            <div class="item-wrapper">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="">Paciente</label>
+                                            <input readonly type="text" class="form-control"
+                                                   value="{{ $paciente->nombres }} {{ $paciente->apellidos }}">
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label for="">Apellidos</label>
-                                        <input readonly type="text" class="form-control"
-                                               value="{{ $paciente->apellidos }}">
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label for="">Edad</label>
-                                        <input readonly type="text" class="form-control"
-                                               value="{{ str_replace('antes', '', $paciente->fecha_nacimiento->diffForHumans(\Carbon\Carbon::now())) }}">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="">Edad</label>
+                                            <input readonly type="text" class="form-control"
+                                                   value="{{ str_replace('antes', '', $paciente->fecha_nacimiento->diffForHumans(\Carbon\Carbon::now())) }}">
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
+                    <div class="col-lg-6">
+                        <div class="col-lg-12">
+                            <div class="grid">
+                                <p class="grid-header">Registro</p>
+                                <div class="grid-body">
+                                    <div class="item-wrapper">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label for="inputType1">Diagnóstico</label>
+                                                    <textarea name="diagnostico" id="diagnostico" cols="14" rows="5"
+                                                              class="form-control"></textarea>
 
-        <div class="col-lg-6">
-            <div class="col-lg-12">
-                <div class="grid">
-                    <p class="grid-header">Registro</p>
-                    <div class="grid-body">
-                        <div class="item-wrapper">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                        <label for="inputType1">Diagnóstico</label>
-                                        <textarea name="diagnostico" id="diagnostico" cols="14" rows="5"
-                                                  class="form-control"></textarea>
-
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    <div class="row">
+                        <div class="container-fluid">
+                            <div class="col-lg-12">
+                                <div class="grid">
+                                    <p class="grid-header">RECETA</p>
+                                    <div class="grid-body">
+
+                                        <div class="item-wrapper">
+                                            <div class="row mb-3">
+                                                <div class="col-md-4 col-sm-6">
+                                                    <div class="form-group">
+                                                        <label for="inputType1">Medicamento</label>
+                                                        <select name="medicamento" class="js-example-basic-single form-control"
+                                                                onchange="cargarPresentaciones($(this).val())" id="medicamentos">
+                                                            <option value="">-- SELECCIONAR --</option>
+                                                            @foreach($medicamentos as $medicamento)
+                                                                <option value="{{ $medicamento->id }}">
+                                                                    {{ $medicamento->nombre }}
+                                                                </option>
+                                                            @endforeach
+                                                        </select>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-4 col-sm-6">
+                                                    <div class="form-group">
+                                                        <label for="inputType1">Presentación</label>
+                                                        <select name="presentacion" class="js-example-basic-single form-control"
+                                                                id="presentaciones">
+                                                            <option value="">-- SELECCIONAR --</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-4 col-sm-6">
+                                                    <div class="form-group">
+                                                        <label for="inputType1">Indicaciones</label>
+                                                        <input type="text" class="form-control" id="indicaciones">
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-4 col-sm-6">
+                                                    <div class="form-group">
+                                                        <label for="inputType1">Cantidad</label>
+                                                        <input type="number" class="form-control" id="cantidad">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row mb-3 mx-auto">
+                                                <button class="btn btn-primary" style="margin-left: auto; margin-right: auto"
+                                                        onclick="javascript:agregarItems()">
+                                                    <i class="fa-solid fa-plus icono"></i>&nbsp;AGREGAR
+                                                </button>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="table-responsive">
+                                                    <table class="table table-striped table-bordered table-condensed table-hover  ">
+                                                        <thead>
+                                                        <tr>
+                                                            <th style="background-color: #F8AC10 !important; color: #fff;"></th>
+                                                            <th style="background-color: #F8AC10 !important; color: #fff;">MEDICAMENTO
+                                                            </th>
+                                                            <th style="background-color: #F8AC10 !important; color: #fff;">
+                                                                PRESENTACION
+                                                            </th>
+                                                            <th style="background-color: #F8AC10 !important; color: #fff;">CANTIDAD</th>
+                                                            <th style="background-color: #F8AC10 !important; color: #fff;">
+                                                                INDICACIONES
+                                                            </th>
+                                                        </tr>
+                                                        </thead>
+                                                        <tbody id="grid-receta">
+                                                        <tr>
+                                                            <td>
+
+                                                            </td>
+                                                        </tr>
+                                                        </tbody>
+                                                    </table>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <br>
+                                        <br>
+                                        <hr>
+                                        <div class="row" style="text-align:center">
+                                            <div class="col-12">
+                                                <a href="{{ route('cita.index') }}" class="btn btn-success">
+                                                    <i class="fa-solid fa-ban icono"></i>&nbsp;&nbsp;
+                                                    Cancelar
+                                                </a>
+
+                                                <button class="btn btn-primary" type="button" onclick="grabarDatos()">
+                                                    <i class="fa-regular fa-floppy-disk icono"></i>&nbsp;&nbsp;Guardar
+                                                </button>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>
     </div>
 
+
+
+
     <hr>
     <hr>
 
-    <div class="row">
-        <div class="container-fluid">
-            <div class="col-lg-12">
-                <div class="grid">
-                    <p class="grid-header">RECETA</p>
-                    <div class="grid-body">
-
-                        <div class="item-wrapper">
-                            <div class="row mb-3">
-                                <div class="col-md-4 col-sm-6">
-                                    <div class="form-group">
-                                        <label for="inputType1">Medicamento</label>
-                                        <select name="medicamento" class="js-example-basic-single form-control"
-                                                onchange="cargarPresentaciones($(this).val())" id="medicamentos">
-                                            <option value="">-- SELECCIONAR --</option>
-                                            @foreach($medicamentos as $medicamento)
-                                                <option value="{{ $medicamento->id }}">
-                                                    {{ $medicamento->nombre }}
-                                                </option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-                                </div>
-
-                                <div class="col-md-4 col-sm-6">
-                                    <div class="form-group">
-                                        <label for="inputType1">Presentación</label>
-                                        <select name="presentacion" class="js-example-basic-single form-control"
-                                                id="presentaciones">
-                                            <option value="">-- SELECCIONAR --</option>
-                                        </select>
-                                    </div>
-                                </div>
-
-                                <div class="col-md-4 col-sm-6">
-                                    <div class="form-group">
-                                        <label for="inputType1">Indicaciones</label>
-                                        <input type="text" class="form-control" id="indicaciones">
-                                    </div>
-                                </div>
-
-                                <div class="col-md-4 col-sm-6">
-                                    <div class="form-group">
-                                        <label for="inputType1">Cantidad</label>
-                                        <input type="number" class="form-control" id="cantidad">
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="row mb-3 mx-auto">
-                                <button class="btn btn-primary" style="margin-left: auto; margin-right: auto"
-                                        onclick="javascript:agregarItems()">
-                                    <i class="fa-solid fa-plus icono"></i>&nbsp;AGREGAR
-                                </button>
-                            </div>
-
-                            <div class="row">
-                                <div class="table-responsive">
-                                    <table class="table table-striped table-bordered table-condensed table-hover  ">
-                                        <thead>
-                                        <tr>
-                                            <th style="background-color: #F8AC10 !important; color: #fff;"></th>
-                                            <th style="background-color: #F8AC10 !important; color: #fff;">MEDICAMENTO</th>
-                                            <th style="background-color: #F8AC10 !important; color: #fff;">PRESENTACION</th>
-                                            <th style="background-color: #F8AC10 !important; color: #fff;">CANTIDAD</th>
-                                            <th style="background-color: #F8AC10 !important; color: #fff;">INDICACIONES</th>
-                                        </tr>
-                                        </thead>
-                                        <tbody id="grid-receta">
-                                        <tr>
-                                            <td>
-
-                                            </td>
-                                        </tr>
-                                        </tbody>
-                                    </table>
-
-                                </div>
-                            </div>
-                        </div>
-                        <br>
-                        <br>
-                        <hr>
-                        <div class="row" style="text-align:center">
-                            <div class="col-12">
-                                <a href="{{ route('cita.index') }}" class="btn btn-success">
-                                    <i class="fa-solid fa-ban icono"></i>&nbsp;&nbsp;
-                                    Cancelar
-                                </a>
-
-                                <button class="btn btn-primary" type="button" onclick="grabarDatos()">
-                                    <i class="fa-regular fa-floppy-disk icono"></i>&nbsp;&nbsp;Guardar
-                                </button>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </div>
 
 
 

@@ -4,46 +4,37 @@
 
     @include('partitials.messages')
 
-    <div class="col-lg-12">
-        <div class="grid">
-            <p class="grid-header">Registro</p>
-            <div class="grid-body">
-                <form action="{{ route('presentacion.store') }}" method="POST">
-                    @csrf
-
-                    <div class="item-wrapper">
-                        <div class="row mb-3">
-                            <div class="col-md-8 mx-auto">
-                                <div class="form-group row showcase_row_area">
-                                    <div class="col-md-3 showcase_text_area">
-                                        <label for="inputType1">Presentación</label>
-                                    </div>
-                                    <div class="col-md-9 showcase_content_area">
-                                        <input type="text" name="presentacion" class="form-control"
-                                               value="{{ old('presentacion') }}" autofocus>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <hr>
-                    <div class="row" style="text-align:center">
-                        <div class="col-12">
-                            <a href="{{ route('presentacion.index') }}" class="btn btn-success">
-                                <i class="fa-solid fa-ban icono"></i>&nbsp;&nbsp;
-                                Cancelar
-                            </a>
-
-                            <button class="btn btn-primary" type="submit">
-                                <i class="fa-regular fa-floppy-disk icono"></i>&nbsp;&nbsp;Guardar
-                            </button>
-
-                        </div>
-                    </div>
-                </form>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                <p class="grid-header">Registro de presentación</p>
             </div>
         </div>
+        <form action="{{ route('presentacion.store') }}" method="POST">
+            @csrf
+            <div class="row">
+                <div class="col-md-4 col-lg-4">
+                    <div class="form-group">
+                        <label for="presentacion">Presentación</label>
+                        <input type="text" name="cui" class="form-control"
+                               id="presentacion"
+                               value="{{ old('presentacion') }}" autofocus>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-12">
+                    <button type="submit" class="btn btn-primary">Guardar</button>
+                    <a class="btn btn-dark" href="{{ route('presentacion.index') }}" role="button">
+                        Regresar
+                    </a>
+
+                </div>
+            </div>
+        </form>
     </div>
+
 
 @endsection
 @section('scripts')

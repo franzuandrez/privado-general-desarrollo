@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Medicamento extends Model
 {
     protected $table = 'medicamento';
-    protected $fillable = ['nombre', 'descripcion'];
+    protected $fillable = ['nombre', 'descripcion','precio'];
     public $timestamps = false;
 
     public function scopeActive(Builder $query)

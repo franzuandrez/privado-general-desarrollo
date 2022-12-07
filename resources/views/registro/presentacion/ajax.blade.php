@@ -2,7 +2,7 @@
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
         <div class="table-responsive">
             <table class="table table-hover">
-                <tr style="background-color: #6c5ce7; color: #fff">
+                <tr style="background-color: #F8AC10; color: #fff">
                     <th>#</th>
                     <th>Presentación</th>
                     <th>Opciones</th>
@@ -14,18 +14,10 @@
                         <td>
                             <a href="{{ route('presentacion.edit', $item->id) }}" data-toggle="tooltip"
                                data-placement="top" title="Editar">
-                                <i class="fa-solid fa-pen-to-square"></i>
+                                Editar
                             </a>
                             &nbsp;&nbsp;
-                            <a href="javascript:$('#form-destroy-{{$item->id}}').submit()" data-toggle="tooltip"
-                               data-placement="top" title="Dar de baja">
-                                <i class="fa-solid fa-trash"></i>
-                            </a>
-                            <form id="form-destroy-{{$item->id}}"
-                                  action="{{ route('presentacion.destroy', $item->id) }}" method="POST">
-                                @csrf
-                                <input name="_method" type="hidden" value="DELETE">
-                            </form>
+
                         </td>
                     </tr>
                 @endforeach

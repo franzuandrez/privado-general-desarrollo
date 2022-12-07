@@ -27,6 +27,8 @@ class MedicamentoController extends Controller
 
     public function store(MedicamentoStoreRequest $request)
     {
+
+
         try {
             DB::beginTransaction();
             $medicamento = Medicamento::create($request->all());
@@ -35,6 +37,7 @@ class MedicamentoController extends Controller
                 $presentacion = new MedicamentoPresentacion();
                 $presentacion->id_medicamento = $medicamento->id;
                 $presentacion->id_presentacion = $item;
+                $presentacion->precio = $request->precio;
                 $presentacion->save();
             }
 
@@ -42,6 +45,7 @@ class MedicamentoController extends Controller
             return redirect()->route('medicamento.index')->with('store', 'Registro agregado');
         } catch (\Exception $e) {
             DB::rollBack();
+            dd($e);
             return redirect()->back()->with('error', 'Ups! Ha ocurrido un error inesperado, por favor inténtelo nuevamente');
         }
     }

@@ -3,37 +3,37 @@
 
     @include('partitials.messages')
 
-    <div class="row">
-        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                <a href="{{route('inventario.create')}}" class="btn btn-primary">
-                    <i class="fa fa-plus"></i>&nbsp;&nbsp;Nuevo Movimiento
-                </a>
 
-                <a href="{{route('inventario.reduce')}}" class="btn btn-danger">
-                    <i class="fa fa-minus"></i>&nbsp;&nbsp;Reducción Inventario
-                </a>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="col col-md-12">
+                            <div class="grid">
+                                <h4 class="card-title">Inventario
+                                    <a href="{{route('inventario.create')}}" class="btn btn-primary">
+                                        <i class="fa fa-plus"></i>&nbsp;&nbsp;Ingreso
+                                    </a>
 
-            {{--            @component('partitials.btn-ver',['url'=>'javascript:ver("laptop")'])--}}
-            {{--            @endcomponent--}}
+                                    <a href="{{route('inventario.reduce')}}" class="btn btn-danger">
+                                        <i class="fa fa-minus"></i>&nbsp;&nbsp;Salidas
+                                    </a>
+                                </h4>
+                                <div class="item-wrapper">
+                                    <div class="table-responsive">
+                                        <div id="content">
+                                            @include('farmacia.inventario.ajax')
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
-            {{--            @component('partitials.btn-edit',['url'=>'javascript:editar("laptop")'])--}}
-            {{--            @endcomponent--}}
-
-            {{--            @component('partitials.btn-eliminar',['url'=>url('laptop/delete')])--}}
-            {{--            @endcomponent--}}
-
-            {{--            @component('partitials.btn-asignar',['url'=>'javascript:asignar()'])--}}
-            {{--            @endcomponent--}}
-
-            {{--            @component('partitials.btn-desasignar',['url'=>url('laptop/delete')])--}}
-            {{--            @endcomponent--}}
+                    </div>
+                </div>
+            </div>
         </div>
+    </div>
 
-    </div>
-    <br>
-    <div class="row">
-    </div>
-    <div id="content">
-        @include('farmacia.inventario.ajax')
-    </div>
 @endsection
