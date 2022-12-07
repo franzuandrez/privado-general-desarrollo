@@ -141,7 +141,7 @@
                             <i class="fa fa-stethoscope"></i>
                             <span
                                 class="hide-menu">Citas</span></a></li>
-                    <li class="sidebar-item"><a class="sidebar-link sidebar-link" href="{{ route('inventario.index')}}"
+                    <li class="sidebar-item"><a class="sidebar-link sidebar-link" href="{{ route('ventas.index')}}"
                                                 aria-expanded="false">
                             <i class=" fa fa-book"></i>
 

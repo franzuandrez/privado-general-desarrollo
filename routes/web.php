@@ -103,6 +103,12 @@ Route::group(['namespace' => 'Dashboard', 'middleware' => ['auth']], function ()
     Route::patch('tipo_personal/update/{id}', [RolController::class, 'update'])->name('tipo_personal.update');
     Route::delete('tipo_personal/delete/{id}', [RolController::class, 'destroy'])->name('tipo_personal.destroy');
 
+
+    Route::get('ventas', [\App\Http\Controllers\VentasController::class, 'index'])->name('ventas.index');
+    Route::get('ventas/create', [\App\Http\Controllers\VentasController::class, 'create'])->name('ventas.create');
+    Route::post('ventas/create', [\App\Http\Controllers\VentasController::class, 'store'])->name('ventas.store');
+    Route::get('ventas/show/{id}', [\App\Http\Controllers\VentasController::class, 'show'])->name('ventas.show');
+
 });
 
 

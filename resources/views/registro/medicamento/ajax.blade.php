@@ -13,7 +13,7 @@
                         <td>{{ $item->id }}</td>
                         <td>{{ $item->nombre }}</td>
                         <td>{{ $item->descripcion }}</td>
-                    
+
                         <td>
                             <a href="{{ route('medicamento.edit', $item->id) }}" data-toggle="tooltip"
                                data-placement="top" title="Editar">
