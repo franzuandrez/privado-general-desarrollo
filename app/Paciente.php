@@ -10,8 +10,17 @@ class Paciente extends Model
     protected $table = 'paciente';
     protected $dates = ['fecha_nacimiento'];
 
-    protected $fillable = ['nombres', 'apellidos', 'fecha_nacimiento'];
+    protected $fillable = [
+
+        'cui',
+        'primer_nombre',
+        'segundo_nombre',
+        'primer_apellido',
+        'segundo_apellido',
+        'fecha_nacimiento'];
     public $timestamps = false;
+
+
 
     public function scopeActive(Builder $query)
     {

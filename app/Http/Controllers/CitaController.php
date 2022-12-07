@@ -61,7 +61,7 @@ class CitaController extends Controller
             $cita->fecha_cita = $request->fecha_cita;
             $cita->update();
 
-            return redirect()->route('cita.index')->with('update', 'Registro actualizado');
+            return redirect()->route('cita.index')->with('update', 'Actualización correcta');
         } catch (\Exception $e) {
             return redirect()->back()->with('error', 'Ha ocurrido un error por favor inténtelo nuevamente');
         }

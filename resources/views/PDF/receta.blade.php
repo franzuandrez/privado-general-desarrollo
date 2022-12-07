@@ -46,51 +46,40 @@
 
 <table style="width:100%">
     <tr>
-        <td class="bold" style="font-family: 'Arial', Courier, monospace; font-size: 14px; text-align: center">
-            HOSPITAL BUENOS INGENIEROS
+        <td class="bold" style="font-family: 'Arial', Courier, monospace; font-size: 16px; text-align: center">
+            <img src="{{url('assets/images/image_1.png')}}"
+                 width="250px"
+            >
         </td>
     </tr>
 </table>
 <hr>
 <br><br>
 
-<table>
-    <tr>
-        <td>
-            <image></image>
-        </td>
-    </tr>
-</table>
+
 
 
 <table>
     <tr>
-        <td class="bold encabezado-detalle">FECHA/HORA IMPRESION:</td>
+        <td class="bold encabezado-detalle">Impreso a las:</td>
         <td>{{ \Carbon\Carbon::now()->format('d/m/Y H:i:s') }}</td>
     </tr>
     <tr>
-        <td class="bold encabezado-detalle">FECHA CITA:</td>
+        <td class="bold encabezado-detalle">Fecha cita:</td>
         <td>{{ $receta[0]->fecha_cita }}</td>
     </tr>
     <tr>
-        <td class="bold encabezado-detalle">PACIENTE:</td>
+        <td class="bold encabezado-detalle">Paciente:</td>
         <td>{{ $receta[0]->nombre_paciente }}</td>
     </tr>
-    <tr>
-        <td class="bold encabezado-detalle">MOTIVO:</td>
-        <td>{{ $receta[0]->motivo_cita }}</td>
-    </tr>
-    <tr>
-        <td class="bold encabezado-detalle">ATENDIDO POR:</td>
-        <td>Dr(a). {{ $receta[0]->doctor_atendio }}</td>
-    </tr>
+
 </table>
 <br>
 <br>
 
 <table>
     <tr>
-        <td class="bold">DIAGNOSTICO:</td>
+        <td class="bold">Diagnóstico:</td>
         <td>{{ $receta[0]->diagnostico }}</td>
     </tr>
 </table>
@@ -99,10 +88,10 @@
 <table class="styled-table" width="100%">
     <thead>
     <tr>
-        <th>#</th>
-        <th>MEDICAMENTO</th>
-        <th>PRESENTACION</th>
-        <th>INDICACIONES</th>
+        <th>No.</th>
+        <th>Medicamento</th>
+        <th>Presentación</th>
+        <th>Indicaciones</th>
     </tr>
     </thead>
     <tbody>
@@ -127,13 +116,7 @@
 <br><br><br><br><br>
 <br><br><br><br><br>
 
-<table style="width: 100%">
-    <tr>
-        <td style="text-align: center">NOTA: Se recomienda seguir al pie de la letra, todas las indicaciones de la
-            receta. No permita que en farmacia le cambien la medicina.
-        </td>
-    </tr>
-</table>
+
 
 <body>
 
