@@ -84,16 +84,13 @@
                     </div>
                     <br>
                     <hr>
-                    <div class="row" style="text-align:center">
-                        <div class="col-12">
-                            <a href="{{ route('inventario.index') }}" class="btn btn-success">
-                                <i class="fa-solid fa-ban icono"></i>&nbsp;&nbsp;
-                                Cancelar
-                            </a>
 
-                            <button class="btn btn-primary" type="submit">
-                                <i class="fa-regular fa-floppy-disk icono"></i>&nbsp;&nbsp;Guardar
-                            </button>
+                    <div class="row">
+                        <div class="col-12">
+                            <button type="submit" class="btn btn-primary">Guardar</button>
+                            <a class="btn btn-dark" href="{{ route('inventario.index') }}" role="button">
+                                Regresar
+                            </a>
 
                         </div>
                     </div>

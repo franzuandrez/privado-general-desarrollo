@@ -24,7 +24,7 @@ class PersonalStoreRequest extends FormRequest
     public function rules()
     {
         return [
-            'nickname' => 'required|unique:users,name',
+
             'nombres' => 'required',
             'apellidos' => 'required',
             'tipo' => 'required',

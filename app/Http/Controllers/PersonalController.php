@@ -6,6 +6,7 @@ use App\Http\Requests\PersonalStoreRequest;
 use App\Http\Requests\PersonalUpdateRequest;
 use App\User;
 
+use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 use Spatie\Permission\Models\Role;
 
@@ -30,7 +31,7 @@ class PersonalController extends Controller
             DB::beginTransaction();
 
             $user = new User();
-            $user->name = $request->nickname;
+            $user->name =  $request->nombres . Carbon::now()->format('md');
             $user->email = $request->email;
             $user->password = bcrypt($request->contrasenia);
             $user->nombres = $request->nombres;
