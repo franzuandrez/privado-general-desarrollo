@@ -82,12 +82,11 @@ class PacienteController extends Controller
             ->where('cita.id_paciente', $id)
             ->get();
 
+        $receta_pdf = collect(RecetaEnc::all());
 
 
 
 
-
-
-        return view('registro.paciente.historial', compact('paciente', 'citas'));
+        return view('registro.paciente.historial', compact('paciente', 'citas', 'receta_pdf'));
     }
 }

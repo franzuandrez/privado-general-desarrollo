@@ -27,4 +27,8 @@ class Cita extends Model
     public function paciente(){
         return $this->hasOne(Paciente::class, 'id', 'id_paciente');
     }
+
+    public function receta(){
+        return $this->belongsTo(RecetaEnc::class, 'id', 'id_cita');
+    }
 }

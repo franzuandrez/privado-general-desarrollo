@@ -5,6 +5,7 @@ use App\Http\Controllers\DiagnosticoController;
 use App\Http\Controllers\MedicoController;
 use App\Http\Controllers\InventarioController;
 use App\Http\Controllers\PacienteController;
+use App\Http\Controllers\PDFController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -29,6 +30,12 @@ Route::get('paciente/historial/{id}', [PacienteController::class, 'historial'])-
 Route::get('paciente/edit/{id}', [PacienteController::class, 'edit'])->name('paciente.edit');
 Route::patch('paciente/update/{id}', [PacienteController::class, 'update'])->name('paciente.update');
 Route::delete('paciente/delete/{id}', [PacienteController::class, 'destroy'])->name('paciente.destroy');
+
+
+Route::get('receta/{id_cita}', [PDFController::class, 'pdf_receta'])->name('pdf.receta');
+
+
+
 
 Route::get('cita', [CitaController::class, 'index'])->name('cita.index');
 Route::get('cita/create', [CitaController::class, 'create'])->name('cita.create');

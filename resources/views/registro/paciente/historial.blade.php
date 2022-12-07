@@ -44,6 +44,7 @@
                                                                         <table class="table ">
                                                                             <tr style="background-color: #F8AC10; color: #fff">
 
+                                                                                <th>PDF</th>
                                                                                 <th>MOTIVO</th>
                                                                                 <th>DIAGNOSTICO</th>
                                                                                 <th>FECHA</th>
@@ -52,10 +53,13 @@
                                                                             </tr>
                                                                             @foreach($citas as $key => $item)
 
-
-
                                                                                 <tr>
+                                                                                    <td>
+{{--                                                                                        <a href="{{ url('receta/' . $item->id) }}">--}}
+{{--                                                                                    </a>--}}
+                                                                                        {{ 'cita: ' . $item->id }}
 
+                                                                                    </td>
                                                                                     <td>{{ $item->motivo }}</td>
                                                                                     <td>{{ $item->diagnostico }}</td>
                                                                                     <td>{{ $item->fecha }}</td>
@@ -72,7 +76,6 @@
                                                                                                     <td> {{$k->nombre}}</td>
                                                                                                     <td> {{$k->indicacion}}</td>
                                                                                                 </tr>
-
 
                                                                                             @endforeach
                                                                                         </table>
@@ -102,9 +105,6 @@
             </div>
         </div>
     </div>
-
-
-
 
 @endsection
 @section('scripts')
