@@ -55,10 +55,9 @@
 
                                                                                 <tr>
                                                                                     <td>
-{{--                                                                                        <a href="{{ url('receta/' . $item->id) }}">--}}
-{{--                                                                                    </a>--}}
-                                                                                        {{ 'cita: ' . $item->id }}
-
+                                                                                        <a href="{{ route('pdf.receta', $item->id) }}">
+                                                                                            descargar
+                                                                                        </a>
                                                                                     </td>
                                                                                     <td>{{ $item->motivo }}</td>
                                                                                     <td>{{ $item->diagnostico }}</td>

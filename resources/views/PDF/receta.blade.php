@@ -15,7 +15,7 @@
         }
 
         .styled-table thead tr {
-            background-color: #009879;
+            background-color: #F8AC10;
             color: #ffffff;
             /*text-align: left;*/
         }
@@ -53,6 +53,15 @@
 </table>
 <hr>
 <br><br>
+
+<table>
+    <tr>
+        <td>
+            <image></image>
+        </td>
+    </tr>
+</table>
+
 
 <table>
     <tr>
@@ -110,10 +119,10 @@
 
 <br><br><br><br><br>
 <br><br><br><br><br>
-{{--<div style="text-align: center;">--}}
-{{--    <p>f._________________________________________</p>--}}
-{{--    <p>Dr(a). {{ $receta[0]->doctor_atendio }}</p>--}}
-{{--</div>--}}
+<div style="text-align: center;">
+    <p>f._________________________________________</p>
+    <p>Dr(a). {{ $receta[0]->doctor_atendio }}</p>
+</div>
 
 <br><br><br><br><br>
 <br><br><br><br><br>
