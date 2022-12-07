@@ -47,7 +47,7 @@ class DiagnosticoController extends Controller
             $recetaEnc->diagnostico = $request->get('diagnostico');
             $recetaEnc->save();
             if ($request->get('solo_receta') == 0) {
-
+                $total = 0;
                 $venta_enc = new Ventas();
                 $venta_enc->fecha = Carbon::now();
                 $venta_enc->id_receta = $recetaEnc->id;
@@ -55,6 +55,7 @@ class DiagnosticoController extends Controller
                 $venta_enc->save();
 
             }
+
             foreach ($recetaMedica as $key => $item) {
                 $recetaDet = new RecetaDet();
                 $recetaDet->id_receta_enc = $recetaEnc->id;
@@ -72,16 +73,17 @@ class DiagnosticoController extends Controller
                     $venta_det->precio = $item->precio;
                     $venta_det->total = $item->total;
                     $venta_det->save();
+                    $total = $total + $venta_det->total;
 
                     $datosInventario = Inventario::where('id_medicamento', $venta_det->id_medicamento)
                         ->where('id_presentacion', $venta_det->id_presentacion)
-                        ->orderBy('fecha_vencimiento', 'desc')
-                        ->orderBy('fecha_ingreso', 'desc')
+                        ->orderBy('fecha_vencimiento', 'asc')
+                        ->orderBy('fecha_ingreso', 'asc')
                         ->first();
 
                     $inventario = new Inventario();
-                    $inventario->id_tipo_movimiento =2;
-                    $inventario->id_medicamento =  $venta_det->id_medicamento;
+                    $inventario->id_tipo_movimiento = 2;
+                    $inventario->id_medicamento = $venta_det->id_medicamento;
                     $inventario->id_presentacion = $venta_det->id_presentacion;
                     $inventario->id_usuario_grabo = current_user();
                     $inventario->total = $venta_det->cantidad;
@@ -95,6 +97,11 @@ class DiagnosticoController extends Controller
 
 
             }
+            if ($request->get('solo_receta') == 0) {
+                $venta_enc->total = $total;
+                $venta_enc->save();
+            }
+
 
             DB::commit();
             return response()->json(['data' => $recetaEnc->id_cita, 'status' => 200, 'message' => 'Diagnóstico completado']);
