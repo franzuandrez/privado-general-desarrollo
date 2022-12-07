@@ -4,6 +4,7 @@
             <table class="table table-hover">
                 <tr style="background-color: #F8AC10; color: #fff">
                     <th>#</th>
+                    <th>CUI</th>
                     <th>NOMBRES</th>
                     <th>APELLIDOS</th>
                     <th>EDAD</th>
@@ -12,6 +13,7 @@
                 @foreach($collection as $key => $item)
                     <tr>
                         <td>{{ $item->id }}</td>
+                        <td>{{ $item->cui }}</td>
                         <td>{{ $item->nombres }}</td>
                         <td>{{ $item->apellidos }}</td>
                         <td>

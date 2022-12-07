@@ -24,8 +24,9 @@ class PacienteStoreRequest extends FormRequest
     public function rules()
     {
         return [
-            'nombres' => 'required|max:100|min:2',
-            'apellidos' => 'required|max:100|min:2',
+            'primer_nombre' => 'required|max:100|min:2',
+            'primer_apellido' => 'required|max:100|min:2',
+            'cui' => 'required|max:13|min:13',
             'fecha_nacimiento' => 'required|date',
         ];
     }

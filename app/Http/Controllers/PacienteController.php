@@ -27,7 +27,15 @@ class PacienteController extends Controller
     public function store(PacienteStoreRequest $request)
     {
         try {
+            $nombres = $request->get('primer_nombre') . ' ' . $request->get('segundo_nombre');
+            $apellidos = $request->get('primer_apellido') . ' ' . $request->get('segundo_apellido');
+
             $paciente = Paciente::create($request->all());
+            $pacienteNew = Paciente::find($paciente->id);
+            $pacienteNew->nombres = $nombres;
+            $pacienteNew->apellidos = $apellidos;
+            $pacienteNew->save();
+
             return redirect()->route('paciente.index')->with('store', 'Registro agregado');
         } catch (Exception $e) {
             return redirect()->back()->with('error', 'Ha ocurrido un error por favor inténtelo nuevamente');
@@ -78,15 +86,10 @@ class PacienteController extends Controller
     {
         $paciente = Paciente::findOrFail($id);
 
-        $citas = Cita::select('cita.*','receta_enc.diagnostico','receta_enc.fecha','receta_enc.id_cita')
-        ->leftJoin('receta_enc', 'receta_enc.id_cita', '=', 'cita.id')
+        $citas = Cita::select('cita.*', 'receta_enc.diagnostico', 'receta_enc.fecha', 'receta_enc.id_cita')
+            ->leftJoin('receta_enc', 'receta_enc.id_cita', '=', 'cita.id')
             ->where('cita.id_paciente', $id)
             ->get();
-
-
-
-
-
 
 
         return view('registro.paciente.historial', compact('paciente', 'citas'));
