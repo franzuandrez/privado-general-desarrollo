@@ -13,10 +13,7 @@
 
         </div>
 
-    </div>
-    <br>
-    <div class="row">
-    </div>
+
     <div id="content">
         @include('registro.tipo_personal.ajax')
     </div>

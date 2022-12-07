@@ -4,15 +4,17 @@
             <table class="table table-hover">
                 <tr style="background-color: #F8AC10; color: #fff">
                     <th>#</th>
-                    <th>FECHA</th>
-                    <th>PACIENTE</th>
-                    <th>OPCIONES</th>
+                    <th>Fecha</th>
+                    <th>Paciente</th>
+                    <th>Total</th>
+                    <th>Opciones</th>
                 </tr>
                 @foreach($collection as $key => $item)
                 <tr>
                     <td>{{$key+1}}</td>
                     <td>{{ $item->fecha->format('d/m/Y') }}</td>
                     <td>{{$item->nombres}} {{$item->apellidos}}</td>
+                    <td>Q {{$item->total}} </td>
                     <td>
                         <a href="{{ route('ventas.show', $item->id) }}" data-toggle="tooltip"
                            data-placement="top" title="Ver">

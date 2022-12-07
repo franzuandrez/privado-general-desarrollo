@@ -34,7 +34,7 @@
                 <div class="col-md-4 col-lg-4">
                     <div class="form-group">
                         <label for="inputType13">Fecha cita</label>
-                        <input type="text" name="fecha_cita" class="form-control datepicker"
+                        <input type="date" name="fecha_cita" class="form-control datepicker"
                                value="{{ old('fecha_cita') }}">
                     </div>
                 </div>

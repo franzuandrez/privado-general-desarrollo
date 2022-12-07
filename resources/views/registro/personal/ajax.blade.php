@@ -17,18 +17,10 @@
                         <td>
                             <a href="{{ route('personal.edit', $item->id) }}" data-toggle="tooltip"
                                data-placement="top" title="Editar">
-                                <i class="fa-solid fa-pen-to-square"></i>
+                              Editar
                             </a>
                             &nbsp;&nbsp;
-                            <a href="javascript:$('#form-destroy-{{$item->id}}').submit()" data-toggle="tooltip"
-                               data-placement="top" title="Dar de baja">
-                                <i class="fa-solid fa-trash"></i>
-                            </a>
-                            <form id="form-destroy-{{$item->id}}"
-                                  action="{{ route('personal.destroy', $item->id) }}" method="POST">
-                                @csrf
-                                <input name="_method" type="hidden" value="DELETE">
-                            </form>
+
                         </td>
                     </tr>
 

@@ -16,9 +16,6 @@
                                         <i class="fa fa-plus"></i>&nbsp;&nbsp;Ingreso
                                     </a>
 
-                                    <a href="{{route('inventario.reduce')}}" class="btn btn-danger">
-                                        <i class="fa fa-minus"></i>&nbsp;&nbsp;Salidas
-                                    </a>
                                 </h4>
                                 <div class="item-wrapper">
                                     <div class="table-responsive">

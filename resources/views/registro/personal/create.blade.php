@@ -16,16 +16,6 @@
 
                                 <div class="form-group row showcase_row_area">
                                     <div class="col-md-3 showcase_text_area">
-                                        <label for="inputType1">Nikname</label>
-                                    </div>
-                                    <div class="col-md-9 showcase_content_area">
-                                        <input type="text" name="nickname" class="form-control"
-                                               value="{{ old('nickname') }}" autofocus>
-                                    </div>
-                                </div>
-
-                                <div class="form-group row showcase_row_area">
-                                    <div class="col-md-3 showcase_text_area">
                                         <label for="inputType1">Nombres</label>
                                     </div>
                                     <div class="col-md-9 showcase_content_area">

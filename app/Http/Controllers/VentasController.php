@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Cita;
 use App\RecetaEnc;
+use App\VentaDet;
 use App\Ventas;
 use Illuminate\Http\Request;
 
@@ -38,6 +39,15 @@ class VentasController extends Controller
 
     public function show($id)
     {
+        $venta = Ventas::find($id);
 
+        $detalle = VentaDet::select('medicamento.nombre','presentacion.presentacion','ventas_det.*')
+            ->join('medicamento','medicamento.id','=','ventas_det.id_medicamento')
+            ->join('presentacion','presentacion.id','=','ventas_det.id_presentacion')
+            ->where('id_enc',$id)
+            ->get();
+
+
+        return view('servicio.ventas.show', compact('venta','detalle'));
     }
 }
