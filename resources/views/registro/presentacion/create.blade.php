@@ -16,7 +16,7 @@
                 <div class="col-md-4 col-lg-4">
                     <div class="form-group">
                         <label for="presentacion">Presentación</label>
-                        <input type="text" name="cui" class="form-control"
+                        <input type="text" name="presentacion" class="form-control"
                                id="presentacion"
                                value="{{ old('presentacion') }}" autofocus>
                     </div>

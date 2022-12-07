@@ -26,6 +26,7 @@
                                     <div class="col-md-9 showcase_content_area">
                                         <select name="medicamento" class="js-example-basic-single form-control"
                                                 onchange="cargarPresentaciones($(this).val())" id="medicamentos">
+                                            <option selected >Seleccione medicamento</option>
                                             @foreach($medicamentos as $medicamento)
                                                 <option {{ old('medicamento') == $medicamento->id ? 'selected' : '' }} value="{{ $medicamento->id }}">
                                                     {{ $medicamento->nombre }}
@@ -61,7 +62,7 @@
                                         <label for="inputType13">Fecha de vencimiento</label>
                                     </div>
                                     <div class="col-md-9 showcase_content_area">
-                                        <input type="text" name="fecha_vencimiento" class="form-control datepicker"
+                                        <input type="date" name="fecha_vencimiento" class="form-control datepicker"
                                                value="{{ old('fecha_vencimiento') }}">
                                     </div>
                                 </div>
@@ -77,15 +78,7 @@
                                 </div>
 
 
-                                <div class="form-group row showcase_row_area">
-                                    <div class="col-md-3 showcase_text_area">
-                                        <label for="inputType12">OBSERVACIONES</label>
-                                    </div>
-                                    <div class="col-md-9 showcase_content_area">
-                                        <textarea class="form-control" name="observaciones" cols="30"
-                                                  rows="5">{{old('observaciones')}}</textarea>
-                                    </div>
-                                </div>
+
                             </div>
                         </div>
                     </div>
