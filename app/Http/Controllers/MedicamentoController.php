@@ -13,7 +13,11 @@ class MedicamentoController extends Controller
 {
     public function index()
     {
-        $collection = Medicamento::active()->get();
+        $collection = Medicamento::select('medicamento.*', 'presentacion.presentacion')
+            ->join('medicamento_presentacion', 'medicamento_presentacion.id_medicamento', '=', 'medicamento.id')
+            ->join('presentacion', 'presentacion.id', '=', 'medicamento_presentacion.id_presentacion')
+            ->active()
+            ->get();
         $data = ['collection' => $collection];
 
         return view('registro.medicamento.index', $data);
@@ -54,8 +58,9 @@ class MedicamentoController extends Controller
     {
         try {
             $medicamento = Medicamento::findOrFail($id);
-            $medicamentoPresentacion = MedicamentoPresentacion::where('id_medicamento', $medicamento->id)->get();
+            $medicamentoPresentacion = MedicamentoPresentacion::where('id_medicamento', $medicamento->id)->first();
             $presentaciones = Presentacion::active()->get();
+
 
             return view('registro.medicamento.edit', compact('medicamento', 'presentaciones', 'medicamentoPresentacion'));
         } catch (\Exception $e) {

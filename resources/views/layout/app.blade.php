@@ -190,12 +190,7 @@
 
                             <span
                                 class="hide-menu">Presentación</span></a></li>
-                    <li class="sidebar-item"><a class="sidebar-link sidebar-link" href="{{url('users')}}"
-                                                aria-expanded="false">
-                            <i class="fas fa-user-circle"></i>
-                            <span
-                                class="hide-menu">Usuarios</span></a></li>
-                    <li class="list-divider"></li>
+
 
 
                 </ul>

@@ -13,6 +13,6 @@ class Medicamento extends Model
 
     public function scopeActive(Builder $query)
     {
-        return $query->where('estado', 1);
+        return $query->where('medicamento.estado', 1);
     }
 }

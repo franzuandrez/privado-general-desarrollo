@@ -6,6 +6,7 @@
                     <th>#</th>
                     <th>Nombre</th>
                     <th>Descripción</th>
+                    <th>Presentacion</th>
                     <th>Opciones</th>
                 </tr>
                 @foreach($collection as $key => $item)
@@ -13,6 +14,7 @@
                         <td>{{ $item->id }}</td>
                         <td>{{ $item->nombre }}</td>
                         <td>{{ $item->descripcion }}</td>
+                        <td>{{ $item->presentacion }}</td>
 
                         <td>
                             <a href="{{ route('medicamento.edit', $item->id) }}" data-toggle="tooltip"
