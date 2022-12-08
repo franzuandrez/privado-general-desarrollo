@@ -39,7 +39,7 @@
                 </div>
                 <div class="col-md-6 col-lg-6">
                     <div class="form-group">
-                        <label for="precio">Precio</label>
+                        <label for="precio">Precio (Q)</label>
                         <input type="text" name="precio" class="form-control"
                                value="{{ old('precio') }}" autofocus>
                     </div>

@@ -37,7 +37,7 @@
                                                                 <th>Medicamento</th>
                                                                 <th>Presentación</th>
                                                                 <th>Cantidad</th>
-                                                                <th>Precio</th>
+                                                                <th>Precio (Q)</th>
                                                                 <th>Total</th>
                                                             </tr>
                                                             @foreach($detalle as $key => $item)

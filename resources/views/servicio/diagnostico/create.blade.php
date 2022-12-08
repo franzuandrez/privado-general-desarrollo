@@ -108,7 +108,7 @@
                                                 </div>
                                                 <div class="col-md-4 col-sm-6">
                                                     <div class="form-group">
-                                                        <label for="inputType1">Precio</label>
+                                                        <label for="inputType1">Precio (Q)</label>
                                                         <input type="number" readonly class="form-control" id="precio">
                                                     </div>
                                                 </div>
